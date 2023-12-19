@@ -1,0 +1,31 @@
+{
+  "type": "module",
+  "main": "index.js",
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {},
+  "name": "portfolio",
+  "version": "0.1.0",
+  "description": "My portfolio as a full-stack developer passionate about learning and building solutions that make a difference in people's lives",
+  "homepage": "https://www.edsonpimenta.net",
+  "icon": "./project_icon.jpeg",
+  "author": {
+    "name": "Edson Pimenta",
+    "email": "dev.eddyyxxyy@gmail.com",
+    "url": "https://www.edsonpimenta.net"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eddyyxxyy/portfolio.git"
+  },
+  "bugs": {
+    "url": "https://github.com/eddyyxxyy/portfolio/issues"
+  },
+  "keywords": [
+    "portfolio",
+    "astro",
+    "typescript",
+    "ssr"
+  ]
+}
