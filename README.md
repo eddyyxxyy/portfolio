@@ -1,4 +1,4 @@
-[![](./img/logo.jpeg)](https://www.edsonpimenta.net)
+[![](./img/readme_banner.jpeg)](https://www.edsonpimenta.net)
 
 > Click this link to read the [documentation for english speakers](./README_EN.md).
 
