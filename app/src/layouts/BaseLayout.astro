@@ -1,0 +1,40 @@
+---
+import ChangeLangList from "../components/ChangeLangList.astro";
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+interface Props {
+  pageTitle: string;
+  pageDescription: string;
+}
+
+const { pageTitle, pageDescription } = Astro.props;
+---
+
+<!doctype html>
+<html lang={Astro.currentLocale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=7" />
+    <meta name="description" content={pageDescription} />
+    <link rel="canonical" href={canonicalURL} />
+    <title>{pageTitle}</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3ZHMY35FBB"
+    ></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-3ZHMY35FBB");
+    </script>
+  </head>
+  <body>
+    <ChangeLangList />
+    <slot />
+  </body>
+</html>
