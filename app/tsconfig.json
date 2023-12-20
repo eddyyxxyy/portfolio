@@ -3,12 +3,17 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["src/components/*"],
-      "@layouts/*": ["src/layouts/*"],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@layouts/*": [
+        "src/layouts/*"
+      ],
     },
     "verbatimModuleSyntax": true,
   },
   "include": [
     "src",
+    "astro.config.ts"
   ],
 }
