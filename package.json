@@ -1,0 +1,7 @@
+{
+  "devDependencies": {
+    "commitlint": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
+    "@commitlint/types": "^18.4.3"
+  }
+}
