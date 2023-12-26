@@ -1,0 +1,58 @@
+---
+const theme =
+  Astro.cookies.get("@edson-pimenta-portfolio-theme:0.1.0")?.value ?? "light";
+
+const iconSrc = theme === "light" ? "/sunIcon.svg" : "/moonIcon.svg";
+
+console.log(theme);
+---
+
+<div>
+  <label for="themeSwitcher" class="sr-only">Change theme</label>
+  <button type="button" value={theme} name="themeSwitcher" id="themeSwitcher">
+    <img src={iconSrc} alt="" />
+  </button>
+</div>
+
+<script>
+  type Themes = "light" | "dark";
+
+  function changeTheme(theme: Themes) {
+    document.documentElement.setAttribute("data-theme", theme);
+    saveTheme(theme);
+  }
+
+  function saveTheme(theme: Themes) {
+    const date = new Date();
+    date.setTime(date.getTime() + 1000 * 60 * 60 * 24 * 365);
+    document.cookie = `@edson-pimenta-portfolio-theme:0.1.0=${theme};expires=${date.toUTCString()};path=/`;
+  }
+
+  function handleChangeTheme(e: Event) {
+    const currentTheme = e.currentTarget as HTMLButtonElement;
+    const newTheme = currentTheme.value === "light" ? "dark" : "light";
+    const iconSrc = newTheme === "light" ? "/sunIcon.svg" : "/moonIcon.svg";
+
+    currentTheme.value = newTheme;
+
+    document.querySelector("#themeSwitcher img")?.setAttribute("src", iconSrc);
+    changeTheme(newTheme);
+  }
+
+  document
+    .querySelector("#themeSwitcher")
+    ?.addEventListener("click", handleChangeTheme);
+
+  window.addEventListener("DOMContentLoaded", () => {
+    let theme = "light";
+
+    const cookies: string = document.cookie;
+    const match = cookies.match("@edson-pimenta-portfolio-theme:0.1.0=([^;]+)");
+
+    if (match) {
+      theme = match[1];
+    }
+
+    changeTheme(theme as Themes);
+  });
+</script>

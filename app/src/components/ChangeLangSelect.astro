@@ -3,7 +3,7 @@ const currentLanguage = Astro.currentLocale;
 ---
 
 <div>
-  <label for="preferredLanguage">Preferred Language</label>
+  <label for="preferredLanguage" class="sr-only">Preferred Language</label>
   <select name="preferredLanguage" id="preferredLanguage">
     <option value="en" selected={currentLanguage === "en"}>English</option>
     <option value="pt-br" selected={currentLanguage === "pt-br"}

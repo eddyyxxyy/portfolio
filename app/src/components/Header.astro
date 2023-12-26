@@ -1,0 +1,29 @@
+---
+import ChangeLangSelect from "./ChangeLangSelect.astro";
+import ChangeThemeButton from "./ChangeThemeButton.astro";
+---
+
+<header>
+  <div class="img-wrapper">
+    <img src="/logo.webp" alt="Edson's logo" />
+  </div>
+  <ChangeLangSelect />
+  <ChangeThemeButton />
+</header>
+<style>
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.8rem 1.6rem;
+  }
+
+  .img-wrapper {
+    max-width: 10rem;
+    max-height: 10rem;
+  }
+
+  img {
+    width: 100%;
+  }
+</style>

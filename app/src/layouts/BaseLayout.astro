@@ -1,5 +1,8 @@
 ---
-import ChangeLangList from "../components/ChangeLangList.astro";
+import Header from "../components/Header.astro";
+
+const theme =
+  Astro.cookies.get("@edson-pimenta-portfolio-theme:0.1.0")?.value ?? "light";
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
@@ -12,11 +15,15 @@ const { pageTitle, pageDescription } = Astro.props;
 ---
 
 <!doctype html>
-<html lang={Astro.currentLocale}>
+<html lang={Astro.currentLocale} data-theme={theme}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=7" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta name="description" content={pageDescription} />
     <link rel="canonical" href={canonicalURL} />
     <title>{pageTitle}</title>
@@ -34,7 +41,73 @@ const { pageTitle, pageDescription } = Astro.props;
     </script>
   </head>
   <body>
-    <ChangeLangList />
+    <Header />
     <slot />
   </body>
 </html>
+
+<style is:global>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    font-size: 62.5%;
+    color-scheme: light;
+
+    --lm-accent: #fda312;
+    --lm-primary: #14223e;
+    --lm-secondary: #707070;
+    --lm-text: #000000;
+    --lm-background: #ffffff;
+
+    --dm-accent: #ed9302;
+    --dm-primary: #c1cfeb;
+    --dm-secondary: #8f8f8f;
+    --dm-text: #ffffff;
+    --dm-background: #000000;
+
+    --accent: var(--lm-accent);
+    --primary: var(--lm-primary);
+    --secondary: var(--lm-secondary);
+    --text: var(--lm-text);
+    --background: var(--lm-background);
+    color-scheme: light;
+  }
+
+  [data-theme="light"] {
+    --accent: var(--lm-accent);
+    --primary: var(--lm-primary);
+    --secondary: var(--lm-secondary);
+    --text: var(--lm-text);
+    --background: var(--lm-background);
+    color-scheme: light;
+  }
+
+  [data-theme="dark"] {
+    --accent: var(--dm-accent);
+    --primary: var(--dm-primary);
+    --secondary: var(--dm-secondary);
+    --text: var(--dm-text);
+    --background: var(--dm-background);
+    color-scheme: dark;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  body {
+    height: 100svh;
+  }
+</style>
