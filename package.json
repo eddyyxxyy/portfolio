@@ -1,0 +1,43 @@
+{
+  "name": "portfolio",
+  "version": "0.0.1",
+  "description": "My portfolio as a full-stack developer passionate about learning and building solutions that make a difference in people's lives",
+  "main": "index.js",
+  "homepage": "https://www.edsonpimenta.net/",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "check": "astro check",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "lint": "eslint --ext .js,.ts,.astro src",
+    "prepare": "husky",
+    "commitlint": "commitlint --edit"
+  },
+  "keywords": [
+    "portfolio",
+    "astro",
+    "typescript",
+    "ssr"
+  ],
+  "author": {
+    "name": "Edson Pimenta",
+    "email": "dev.eddyyxxyy@gmail.com",
+    "url": "https://www.edsonpimenta.net/"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@astrojs/sitemap": "^3.1.1",
+    "@astrojs/ts-plugin": "^1.6.0",
+    "astro": "^4.5.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.27",
+    "@typescript-eslint/parser": "^7.2.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-astro": "^0.31.4",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "husky": "^9.0.11",
+    "typescript": "^5.4.2"
+  }
+}

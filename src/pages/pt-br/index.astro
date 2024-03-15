@@ -1,0 +1,13 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
+---
+
+<BaseLayout
+  canonicalUrl={cannonicalUrl}
+  pageDescription="Essa é minha meta description."
+  pageTitle="Esse é meu título"
+>
+  <h1>Olá, Mundo!</h1>
+</BaseLayout>
