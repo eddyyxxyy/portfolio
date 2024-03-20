@@ -5,9 +5,7 @@ module.exports = {
   ],
   rules: {
     "comma-dangle": ["error", "always-multiline"],
-    "indent": ["error", 2],
     "linebreak-style": ["error", "unix"],
-    "max-len": ["error", 80, 2],
     "quotes": ["error", "double"],
     "semi": ["error"],
   },
@@ -16,10 +14,21 @@ module.exports = {
       files: ["*.astro"],
       parser: "astro-eslint-parser",
       parserOptions: {
-        parser: "@typescript-eslint/parser",
+        ecmaVersion: "latest",
         extraFileExtensions: [".astro"],
+        parser: "@typescript-eslint/parser",
+      },
+      processor: "astro/client-side-ts",
+    },
+    {
+      files: ["*.ts"],
+      parser: "@typescript-eslint/parser",
+      parserOptions: {
+        ecmaVersion: "latest",
+        parser: "@typescript-eslint/parser",
+        project: "./tsconfig.json",
       },
       processor: "astro/client-side-ts",
     },
   ],
-}
+};
