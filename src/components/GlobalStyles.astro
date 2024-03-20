@@ -213,11 +213,25 @@
 
   body {
     height: 100svh;
-    background-color: var(--neutral);
+    background-color: var(--neutral-100);
+    font-family: "Alegreya Sans", sans-serif;
     color: var(--neutral-900);
   }
 
   body * {
     font-size: 1.6rem;
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+  }
+
+  button {
+    border: none;
+    padding: 0;
+    background-color: transparent;
+  }
+
+  a {
+    color: var(--neutral-900);
+    text-decoration: none;
   }
 </style>
