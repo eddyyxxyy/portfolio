@@ -1,16 +1,17 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { translations404 } from "@/i18n/404";
 
-const localeIsPtBr = Astro.currentLocale === "pt-br";
+const currentTranslation = Astro.currentLocale === "en" ? "en" : "pt-br";
+
+const translationObject = translations404[currentTranslation];
 ---
 
 <BaseLayout
-  pageTitle={localeIsPtBr ? "Página não encontrada" : "Page not found"}
-  pageDescription={localeIsPtBr
-    ? "A página que você está tentando acessar não existe."
-    : "The page you're trying to access doesn't exist."}
+  pageTitle={translationObject.pageTitle}
+  pageDescription={translationObject.pageTitle}
 >
   <h1>
-    {localeIsPtBr ? "Página não encontrada" : "Page not found!"}
+    {translationObject.h1}
   </h1>
 </BaseLayout>

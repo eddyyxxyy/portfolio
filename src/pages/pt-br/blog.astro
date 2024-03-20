@@ -1,0 +1,13 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
+---
+
+<BaseLayout
+  canonicalUrl={cannonicalUrl}
+  pageDescription="Posts sobre Carreira, Vida Pessoal e Tecnologia por Edson Pimenta (eddyyxxyy). O intuito é ser divertido criar conteúdo e talvez útil ao compartilhar o que vivo."
+  pageTitle="Blog do Eddy | Escrevendo coisas meio aleatórias"
+>
+  <h1>Olá, Leitores!</h1>
+</BaseLayout>
