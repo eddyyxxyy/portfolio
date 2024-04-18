@@ -1,5 +1,8 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import { Picture } from "astro:assets";
+
+import heroImage from "@assets/hero_dark_decorative_image.svg";
 
 const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
 ---
@@ -9,5 +12,150 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
   pageDescription="Driven by a passion for crafting innovative and high-impact web solutions. Thriving in a leading distance education company creating web applications."
   pageTitle="Edson Pimenta (eddyyxxyy) | FullStack Developer"
 >
-  <h1>Hello, World!</h1>
+  <main>
+    <header id="hero">
+      <div class="heroText">
+        <p>Hello, my name is</p>
+        <h1>Edson Pimenta</h1>
+        <p>I'm a FullStack Developer.<br />I build things for the web!</p>
+      </div>
+      <div class="heroImage">
+        <Picture
+          src={heroImage}
+          alt=""
+          loading="eager"
+          decoding="async"
+          format="svg"
+          fallbackFormat="png"
+        />
+      </div>
+    </header>
+    <section id="about">
+      <h2>About me</h2>
+    </section>
+  </main>
 </BaseLayout>
+
+<style>
+  main > * {
+    padding: 2.4rem 2rem;
+  }
+
+  main > * {
+    margin-bottom: 6rem;
+  }
+
+  #hero > * {
+    max-width: 650px;
+  }
+
+  #hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+  }
+
+  .heroText :first-child {
+    font-size: 2rem;
+    color: var(--neutral-700);
+    margin-bottom: 1.2rem;
+  }
+
+  .heroText :not(:first-child, h1) {
+    font-size: 3.2rem;
+  }
+
+  .heroText > h1 {
+    background: linear-gradient(
+      to top left,
+      var(--neutral-900),
+      var(--primary)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: "Exo 2", serif;
+    font-size: 4rem;
+    text-transform: uppercase;
+    color: var(--primary-100);
+    border-bottom: 3px solid var(--neutral-100);
+    border-radius: 4px;
+    margin-bottom: 1.2rem;
+  }
+
+  .heroImage {
+    max-width: 450px;
+    width: 100%;
+  }
+
+  .heroImage img {
+    width: 100%;
+    height: 100%;
+  }
+
+  main > :nth-child(even) {
+    background-color: var(--neutral-100);
+  }
+
+  @media (min-width: 1000px) {
+    main > * {
+      padding: 4.8rem 12%;
+    }
+
+    #hero > * {
+      max-width: fit-content;
+    }
+
+    #hero {
+      flex-direction: row;
+      flex-wrap: nowrap;
+      gap: 8rem;
+    }
+
+    .heroText :first-child {
+      font-size: 2rem;
+      color: var(--neutral-700);
+      margin-bottom: 2rem;
+    }
+
+    .heroText :not(:first-child, h1) {
+      font-size: 3.6rem;
+    }
+
+    .heroText > h1 {
+      font-size: 4.8rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .heroText {
+      max-width: 100%;
+      min-width: max-content;
+    }
+
+    .heroImage {
+      width: 100%;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    main > * {
+      padding: 8rem 15%;
+    }
+
+    .heroText :first-child {
+      font-size: 2.4rem;
+      color: var(--neutral-700);
+      margin-bottom: 2.4rem;
+    }
+
+    .heroText :not(:first-child, h1) {
+      font-size: 4.2rem;
+    }
+
+    .heroText > h1 {
+      font-size: 5.4rem;
+      margin-bottom: 1.2rem;
+    }
+  }
+</style>

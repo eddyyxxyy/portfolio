@@ -146,6 +146,7 @@ const translationObject = translationsHeader[currentLang];
     justify-content: space-between;
     background-color: var(--neutral);
     padding: 1rem 2rem;
+    border-bottom: 1px solid var(--neutral-100);
     box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
   }
 
@@ -155,7 +156,7 @@ const translationObject = translationsHeader[currentLang];
     gap: 0.8rem;
     text-decoration: none;
     padding: 0.4rem 0.8rem;
-    border: 1px solid transparent;
+    border: 1px solid color-mix(in srgb, var(--primary) 50%, transparent);
     border-radius: 8px;
     transition:
       0.25s border ease-in-out,
@@ -222,6 +223,7 @@ const translationObject = translationsHeader[currentLang];
 
   #menu {
     position: absolute;
+    opacity: 0;
     width: 1px;
     height: 1px;
     padding: 0;
@@ -233,12 +235,13 @@ const translationObject = translationsHeader[currentLang];
     list-style: none;
     background-color: var(--neutral);
     text-align: left;
-    transition: 0.25s height cubic-bezier(0.55, 0.085, 0.68, 0.53);
+    transition: 0.25s opacity cubic-bezier(0.55, 0.085, 0.68, 0.53);
   }
 
   #menu.expanded {
     display: block;
     z-index: 1;
+    opacity: 1;
     height: fit-content;
     width: initial;
     top: 5.9rem;
@@ -246,8 +249,8 @@ const translationObject = translationsHeader[currentLang];
     clip: initial;
     padding: 0.8rem 2rem;
     margin: 0;
+    border: 1px solid var(--neutral-100);
     border-top: none;
-    border-right: none;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
@@ -318,6 +321,7 @@ const translationObject = translationsHeader[currentLang];
     #menu,
     #menu.expanded {
       display: block;
+      opacity: 1;
       height: max-content;
       overflow: visible;
       position: unset;
