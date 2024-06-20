@@ -1,0 +1,8 @@
+node_modules
+.gitignore
+.vscode
+.github
+.astro
+dist
+README.md
+README_EN.md

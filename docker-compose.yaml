@@ -1,0 +1,12 @@
+name: eddyyxxyy
+
+services:
+  app:
+    build:
+      context: .
+    container_name: portfolio
+    image: eddyyxxyy/portfolio:v1
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/usr/src/app

@@ -70,12 +70,12 @@ const { canonicalUrl, pageDescription, pageTitle } = Astro.props;
         const themeSelectElement = document.getElementById("colors");
 
         const selectedThemeIndex =
-          localStorage["eddyyxxyy-portfolio-theme:0.0.1"] === "light" ? 0 : 1;
+          localStorage["eddyyxxyy-portfolio-theme:0.1.0"] === "light" ? 0 : 1;
 
         themeSelectElement.selectedIndex = selectedThemeIndex;
 
         const selectedTheme =
-          localStorage["eddyyxxyy-portfolio-theme:0.0.1"] === "light"
+          localStorage["eddyyxxyy-portfolio-theme:0.1.0"] === "light"
             ? "light"
             : "dark";
 
