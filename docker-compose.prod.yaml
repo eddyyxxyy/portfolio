@@ -1,0 +1,11 @@
+name: eddyyxxyyprod
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    container_name: portfolio-prod
+    image: eddyyxxyy/portfolio-prod:v1
+    ports:
+      - 3000:8080
