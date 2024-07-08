@@ -37,7 +37,7 @@ docker compose up --build
 docker compose -f docker-compose.prod.yaml --build
 ```
 
-> `--build` só é necessário caso você queria realmente "_buildar_" as imagens da aplicação.
+> `--build` só é necessário caso você queira realmente "_buildar_" as imagens da aplicação.
 
 Dessa forma você terá acesso na porta 3000 do seu computador à aplicação, em ambos os ambientes. Só será necessário, após subir o container de sua preferência, acessar: http://localhost:3000/.
 
