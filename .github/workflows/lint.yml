@@ -1,0 +1,40 @@
+name: Lint
+
+on:
+  pull_request:
+    branches: [ "develop", "main" ]
+
+jobs:
+  eslint:
+    name: Run eslint scanning
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+    strategy:
+        matrix:
+          node-version: [18.x, 20.x]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Use a cache for npm dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm  # Cache npm dependencies
+          key: ${{ runner.os }}-node-${{ matrix.node-version }} # Unique key per Node.js version
+          restore-keys: |  # Attempt to restore cache from previous runs
+            ${{ runner.os }}-node-   # Cache all Node.js versions
+
+      - name: Install ESLint
+        run: |
+          npm install eslint@8.57.0
+          npm install eslint-plugin-astro@0.31.4
+          npm install eslint-plugin-jsx-a11y@6.8.0
+          npm install @typescript-eslint/parser@7.2.0
+          npm install typescript@5.4.5
+
+      - name: Run ESLint
+        run: npx eslint .
+          --config .eslintrc.js
+          --ext .js,.ts,.astro src
