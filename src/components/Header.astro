@@ -6,6 +6,8 @@ import { Icon } from "astro-icon/components";
 import logoColoured from "@assets/logo_coloured.webp";
 import { translationsHeader } from "@i18n/Header";
 
+const { appVersion } = Astro.locals;
+
 const currentPathname = Astro.url.pathname.replace("/pt-br", "");
 const currentLang = Astro.currentLocale === "en" ? "en" : "pt-br";
 
@@ -91,9 +93,7 @@ const translationObject = translationsHeader[currentLang];
   </nav>
 </header>
 
-<script>
-  import { navigate } from "astro:transitions/client";
-
+<script define:vars={{ appVersion }}>
   document.addEventListener("astro:page-load", () => {
     const headerElement = document.querySelector("header");
     const navMenuElement = document.getElementById("menu");
@@ -120,12 +120,17 @@ const translationObject = translationsHeader[currentLang];
         document.documentElement.dataset.theme = themeSelectElement.value;
 
         localStorage.setItem(
-          "eddyyxxyy-portfolio-theme:0.1.0",
+          "eddyyxxyy-portfolio-theme:" + appVersion,
           themeSelectElement.value,
         );
       });
     }
+  });
+</script>
+<script>
+  import { navigate } from "astro:transitions/client";
 
+  document.addEventListener("astro:page-load", () => {
     const selectLangElement = document.getElementById("languages");
 
     if (selectLangElement instanceof HTMLSelectElement) {
