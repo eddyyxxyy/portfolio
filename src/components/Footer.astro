@@ -1,12 +1,19 @@
 ---
 import { Icon } from "astro-icon/components";
 
+import { translationsFooter } from "@i18n/Footer";
+
 const { appVersion } = Astro.locals;
+
+const currentPathname = Astro.url.pathname.replace("/pt-br", "");
+const currentLang = Astro.currentLocale === "en" ? "en" : "pt-br";
+
+const translationObject = translationsFooter[currentLang];
 ---
 
 <footer>
   <section id="socials">
-    <h1>Connect with me</h1>
+    <h1>{translationObject.h1}</h1>
     <ul id="links">
       <li>
         <a
@@ -39,7 +46,11 @@ const { appVersion } = Astro.locals;
         </a>
       </li>
       <li>
-        <a href="/Edson_Pimenta_resume.pdf" download>
+        <a
+          href="/Edson_Pimenta_resume.pdf"
+          title={translationObject.resumeLink}
+          download
+        >
           <Icon name="file-pdf" size={32} />
         </a>
       </li>
@@ -47,7 +58,10 @@ const { appVersion } = Astro.locals;
   </section>
   <p>&copy; Edson Pimenta - 2024</p>
   <span
-    ><a href="https://github.com/eddyyxxyy/portfolio" target="_blank"
+    ><a
+      href="https://github.com/eddyyxxyy/portfolio"
+      target="_blank"
+      title={translationObject.repositoryLink}
       >v{appVersion} <Icon name="arrow_up_right" size={12} /></a
     ></span
   >
