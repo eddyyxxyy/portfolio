@@ -1,15 +1,371 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import { Picture } from "astro:assets";
+import { Icon } from "astro-icon/components";
+
+import heroImage from "@assets/hero_dark_decorative_image.svg";
+import edsonPimentaImage from "@assets/Edson_Pimenta_Face_Picture.webp";
+import CarouselIcons from "@/components/CarouselIcons.astro";
 
 const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <BaseLayout
   canonicalUrl={cannonicalUrl}
-  pageDescription="Apaixonado por criar soluções web inovadoras e de alto impacto. Trabalhando em uma empresa líder em educação a distância, desenvolvo e aprimoro aplicações web."
-  pageTitle="Edson Pimenta (eddyyxxyy) | Desenvolvedor FullStack"
+  pageDescription="Driven by a passion for crafting innovative and high-impact web solutions. Thriving in a leading distance education company creating web applications."
+  pageTitle="Edson Pimenta (eddyyxxyy) | FullStack Developer"
 >
   <main>
-    <h1>Olá, Mundo!</h1>
+    <header id="hero">
+      <div class="heroText">
+        <p>Olá, me chamo</p>
+        <h1>Edson Pimenta</h1>
+        <p>Sou um Desenvolvedor FullStack.<br />Construo coisas para a Web!</p>
+      </div>
+      <div class="heroImage">
+        <Picture
+          src={heroImage}
+          alt=""
+          loading="eager"
+          decoding="async"
+          format="svg"
+          fallbackFormat="png"
+        />
+      </div>
+    </header>
+    <div id="logo-carousel">
+      <div class="slide">
+        <CarouselIcons />
+      </div>
+      <div class="slide">
+        <CarouselIcons />
+      </div>
+    </div>
+    <section id="about">
+      <div class="image">
+        <Picture
+          src={edsonPimentaImage}
+          alt="Foto do rosto de Edson Pimenta."
+          loading="eager"
+          decoding="async"
+          format="webp"
+          fallbackFormat="jpeg"
+        />
+      </div>
+      <div class="content">
+        <h2>Sobre mim</h2>
+        <p>
+          Apaixonado pela criação de soluções Web inovadoras e de grande impacto
+          e trabalhou numa empresa líder em ensino à distância, <strong
+            >Desenvolvo e melhoro aplicações Web escaláveis, seguras e de fácil
+            utilização aplicações web escaláveis, seguras e de fácil utilização,
+            construídas com as melhores práticas de SEO</strong
+          >. Estou me especializando em Node, TypeScript, React, Tailwind,
+          NextJS, AWS, Containers (Docker e Kubernetes) e Design Patterns.
+        </p>
+        <p>
+          Tenho conhecimentos em <strong
+            >bancos de dados relacionais e não relacionais e containeres</strong
+          >, por exemplo: MySQL, PostgreSQL, MongoDB e Docker.
+        </p>
+        <ul id="links">
+          <li>
+            <a
+              href="https://github.com/eddyyxxyy"
+              target="_blank"
+              rel="noreferer"
+              title="Github"
+            >
+              <Icon name="github-logo" size={32} />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/eeddyyxxyy/"
+              target="_blank"
+              rel="noreferer"
+              title="LinkedIn"
+            >
+              <Icon name="linkedin-logo" size={32} />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.youtube.com/@eddyxide"
+              target="_blank"
+              rel="noreferer"
+              title="Youtube"
+            >
+              <Icon name="youtube-logo" size={32} />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section id="career">
+      <h2>Carreira</h2>
+    </section>
+    <section id="projects">
+      <h2>Projetos</h2>
+    </section>
   </main>
 </BaseLayout>
+
+<style>
+  main > :nth-child(even) {
+    background-color: var(--neutral-100);
+  }
+
+  #hero > * {
+    max-width: 650px;
+  }
+
+  #hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+  }
+
+  .heroText :first-child {
+    font-size: 2rem;
+    color: var(--neutral-700);
+    margin-bottom: 1.2rem;
+  }
+
+  .heroText :not(:first-child, h1) {
+    font-size: 3.2rem;
+  }
+
+  .heroText > h1 {
+    background: linear-gradient(
+      to top left,
+      var(--neutral-900),
+      var(--primary)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: "Exo 2", serif;
+    font-size: 4rem;
+    text-transform: uppercase;
+    color: var(--primary-100);
+    border-bottom: 3px solid var(--neutral-100);
+    border-radius: 4px;
+    margin-bottom: 1.2rem;
+  }
+
+  .heroImage {
+    max-width: 450px;
+    width: 100%;
+  }
+
+  .heroImage img {
+    width: 100%;
+    height: 100%;
+  }
+
+  #logo-carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow-x: hidden;
+    white-space: nowrap;
+  }
+
+  #logo-carousel::before,
+  #logo-carousel::after {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    width: 12rem;
+    height: 100%;
+    content: "";
+  }
+
+  #logo-carousel::before {
+    left: 0;
+    background: linear-gradient(
+      to left,
+      rgba(255, 255, 255, 0),
+      var(--neutral-100)
+    );
+  }
+
+  #logo-carousel::after {
+    right: 0;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0),
+      var(--neutral-100)
+    );
+  }
+
+  #logo-carousel:hover .slide {
+    animation-play-state: paused;
+  }
+
+  .slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: 60s slide infinite linear;
+  }
+
+  section {
+    scroll-margin-top: 6rem;
+  }
+
+  section h2 {
+    font-size: 3.2rem;
+    color: var(--neutral-700);
+  }
+
+  #about {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+  }
+
+  #about .image {
+    max-width: 350px;
+    height: 100%;
+  }
+
+  #about img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+    box-shadow:
+      var(--neutral-600) -3px 3px,
+      var(--neutral-500) -6px 6px,
+      var(--neutral-400) -9px 9px,
+      var(--neutral-300) -12px 12px,
+      var(--neutral-200) -15px 15px;
+  }
+
+  .content {
+    max-width: 650px;
+    margin-bottom: 2rem;
+  }
+
+  .content :is(p, strong) {
+    font-size: 2.2rem;
+    margin-top: 2rem;
+  }
+
+  #links {
+    display: none;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: start;
+    gap: 2.4rem;
+    list-style: none;
+    margin-top: 2.4rem;
+  }
+
+  #links a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.4rem;
+    background-color: var(--neutral-100);
+    padding: 1.2rem;
+    border-radius: 12px;
+    transition: filter 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  #links a:is(:hover, :focus) {
+    filter: brightness(1.1);
+  }
+
+  @keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  @media (min-width: 1000px) {
+    #hero > * {
+      max-width: fit-content;
+    }
+
+    #hero {
+      flex-direction: row;
+      flex-wrap: nowrap;
+      gap: 8rem;
+    }
+
+    .heroText :first-child {
+      font-size: 2rem;
+      color: var(--neutral-700);
+      margin-bottom: 2rem;
+    }
+
+    .heroText :not(:first-child, h1) {
+      font-size: 3.6rem;
+    }
+
+    .heroText > h1 {
+      font-size: 4.8rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .heroText {
+      max-width: 100%;
+      min-width: max-content;
+    }
+
+    .heroImage {
+      width: 100%;
+    }
+
+    #logo-carousel::before,
+    #logo-carousel::after {
+      width: 25rem;
+    }
+
+    #about {
+      flex-direction: row;
+      align-items: center;
+      gap: 8rem;
+    }
+
+    #about .image {
+      max-width: 450px;
+      min-width: 300px;
+    }
+
+    .content {
+      max-width: fit-content;
+    }
+
+    #links {
+      display: flex;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .heroText :first-child {
+      font-size: 2.4rem;
+      color: var(--neutral-700);
+      margin-bottom: 2.4rem;
+    }
+
+    .heroText :not(:first-child, h1) {
+      font-size: 4.2rem;
+    }
+
+    .heroText > h1 {
+      font-size: 5.4rem;
+      margin-bottom: 1.2rem;
+    }
+  }
+</style>

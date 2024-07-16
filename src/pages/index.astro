@@ -1,8 +1,11 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { Picture } from "astro:assets";
+import { Icon } from "astro-icon/components";
 
 import heroImage from "@assets/hero_dark_decorative_image.svg";
+import edsonPimentaImage from "@assets/Edson_Pimenta_Face_Picture.webp";
+import CarouselIcons from "@/components/CarouselIcons.astro";
 
 const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
 ---
@@ -30,13 +33,88 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
         />
       </div>
     </header>
+    <div id="logo-carousel">
+      <div class="slide">
+        <CarouselIcons />
+      </div>
+      <div class="slide">
+        <CarouselIcons />
+      </div>
+    </div>
     <section id="about">
-      <h2>About me</h2>
+      <div class="image">
+        <Picture
+          src={edsonPimentaImage}
+          alt="Edson Pimenta's face picture."
+          loading="eager"
+          decoding="async"
+          format="webp"
+          fallbackFormat="jpeg"
+        />
+      </div>
+      <div class="content">
+        <h2>About me</h2>
+        <p>
+          Passionate about creating innovative, high-impact web solutions and
+          worked at a leading distance education company, <strong
+            >I develop and improve scalable, secure and user-friendly web
+            applications built with SEO best practices</strong
+          >. I'm specializing in Node, TypeScript, React, Tailwind, NextJS, AWS,
+          Containers (Docker and Kubernetes) and Design Patterns.
+        </p>
+        <p>
+          I have knowledge of <strong
+            >relational and non-relational databases and containers</strong
+          >, for example: MySQL, PostgreSQL, MongoDB and Docker.
+        </p>
+        <ul id="links">
+          <li>
+            <a
+              href="https://github.com/eddyyxxyy"
+              target="_blank"
+              rel="noreferer"
+              title="Github"
+            >
+              <Icon name="github-logo" size={32} />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/eeddyyxxyy/"
+              target="_blank"
+              rel="noreferer"
+              title="LinkedIn"
+            >
+              <Icon name="linkedin-logo" size={32} />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.youtube.com/@eddyxide"
+              target="_blank"
+              rel="noreferer"
+              title="Youtube"
+            >
+              <Icon name="youtube-logo" size={32} />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section id="career">
+      <h2>Career</h2>
+    </section>
+    <section id="projects">
+      <h2>Projects</h2>
     </section>
   </main>
 </BaseLayout>
 
 <style>
+  main > :nth-child(even) {
+    background-color: var(--neutral-100);
+  }
+
   #hero > * {
     max-width: 650px;
   }
@@ -86,8 +164,131 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
     height: 100%;
   }
 
-  main > :nth-child(even) {
+  #logo-carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow-x: hidden;
+    white-space: nowrap;
+  }
+
+  #logo-carousel::before,
+  #logo-carousel::after {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    width: 12rem;
+    height: 100%;
+    content: "";
+  }
+
+  #logo-carousel::before {
+    left: 0;
+    background: linear-gradient(
+      to left,
+      rgba(255, 255, 255, 0),
+      var(--neutral-100)
+    );
+  }
+
+  #logo-carousel::after {
+    right: 0;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0),
+      var(--neutral-100)
+    );
+  }
+
+  #logo-carousel:hover .slide {
+    animation-play-state: paused;
+  }
+
+  .slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: 60s slide infinite linear;
+  }
+
+  section {
+    scroll-margin-top: 6rem;
+  }
+
+  section h2 {
+    font-size: 3.2rem;
+    color: var(--neutral-700);
+  }
+
+  #about {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+  }
+
+  #about .image {
+    max-width: 350px;
+    height: 100%;
+  }
+
+  #about img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+    box-shadow:
+      var(--neutral-600) -3px 3px,
+      var(--neutral-500) -6px 6px,
+      var(--neutral-400) -9px 9px,
+      var(--neutral-300) -12px 12px,
+      var(--neutral-200) -15px 15px;
+  }
+
+  .content {
+    max-width: 650px;
+    margin-bottom: 2rem;
+  }
+
+  .content :is(p, strong) {
+    font-size: 2.2rem;
+    margin-top: 2rem;
+  }
+
+  #links {
+    display: none;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: start;
+    gap: 2.4rem;
+    list-style: none;
+    margin-top: 2.4rem;
+  }
+
+  #links a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.4rem;
     background-color: var(--neutral-100);
+    padding: 1.2rem;
+    border-radius: 12px;
+    transition: filter 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  #links a:is(:hover, :focus) {
+    filter: brightness(1.1);
+  }
+
+  @keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
   }
 
   @media (min-width: 1000px) {
@@ -123,6 +324,30 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
 
     .heroImage {
       width: 100%;
+    }
+
+    #logo-carousel::before,
+    #logo-carousel::after {
+      width: 25rem;
+    }
+
+    #about {
+      flex-direction: row;
+      align-items: center;
+      gap: 8rem;
+    }
+
+    #about .image {
+      max-width: 450px;
+      min-width: 300px;
+    }
+
+    .content {
+      max-width: fit-content;
+    }
+
+    #links {
+      display: flex;
     }
   }
 
