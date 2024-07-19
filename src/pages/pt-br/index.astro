@@ -16,6 +16,9 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
   pageTitle="Edson Pimenta (eddyyxxyy) | FullStack Developer"
 >
   <main>
+    <div id="hero-blurry-backgrond-container">
+      <div id="hero-blurry-background"></div>
+    </div>
     <header id="hero">
       <div class="heroText">
         <p>Olá, me chamo</p>
@@ -112,8 +115,17 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
 </BaseLayout>
 
 <style>
-  main > :nth-child(even) {
+  main > :nth-child(odd) {
     background-color: var(--neutral-100);
+  }
+
+  main > :nth-child(even) {
+    background-image: linear-gradient(
+        rgba(40, 163, 204, 0.05) 0.1em,
+        transparent 0.1em
+      ),
+      linear-gradient(90deg, rgba(40, 163, 204, 0.05) 0.1em, transparent 0.1em);
+    background-size: 1.2rem 1.2rem;
   }
 
   #hero > * {
@@ -126,6 +138,29 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
     align-items: center;
     gap: 4rem;
     flex-wrap: wrap;
+    overflow: hidden;
+  }
+
+  #hero-blurry-backgrond-container {
+    position: relative;
+    display: flex;
+    width: 100%;
+    padding: 0;
+  }
+
+  #hero-blurry-background {
+    z-index: -1;
+    position: fixed;
+    flex: 1;
+    top: -250px;
+    left: 0;
+    width: 100%;
+    min-height: 450px;
+    background-image: radial-gradient(
+      closest-side,
+      rgba(40, 163, 204, 0.25),
+      var(--neutral)
+    );
   }
 
   .heroText :first-child {
@@ -146,6 +181,7 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    width: fit-content;
     font-family: "Exo 2", serif;
     font-size: 4rem;
     text-transform: uppercase;
