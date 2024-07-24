@@ -33,8 +33,8 @@ Além disso, "_dockerizei_" a aplicação para ter um ambiente de desenvolviment
 # Ambiente de desenvolvimento:
 docker compose up --build
 
-#Ambiente de produção:
-docker compose -f docker-compose.prod.yaml --build
+# Ambiente de produção:
+docker compose -f docker-compose.prod.yaml up --build
 ```
 
 > `--build` só é necessário caso você queira realmente "_buildar_" as imagens da aplicação.
