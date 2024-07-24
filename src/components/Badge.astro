@@ -1,0 +1,43 @@
+---
+interface Props {
+  iconLeft?: boolean;
+  text: string;
+}
+
+const { iconLeft, text } = Astro.props;
+---
+
+{
+  iconLeft ? (
+    <span>
+      <slot /> {text}
+    </span>
+  ) : (
+    <span>
+      {text}
+      <slot />
+    </span>
+  )
+}
+
+<style>
+  span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    background-color: var(--neutral-700);
+    color: var(--neutral);
+    padding: 0.2rem 0.8rem;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 1.4rem;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px;
+  }
+
+  @media (min-width: 1000px) {
+    span {
+      font-size: 1.6rem;
+    }
+  }
+</style>
