@@ -6,6 +6,7 @@ import { Icon } from "astro-icon/components";
 import heroImage from "@assets/hero_dark_decorative_image.svg";
 import edsonPimentaImage from "@assets/Edson_Pimenta_Face_Picture.webp";
 import CarouselIcons from "@/components/CarouselIcons.astro";
+import Badge from "@/components/Badge.astro";
 
 const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
 ---
@@ -16,8 +17,8 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
   pageTitle="Edson Pimenta (eddyyxxyy) | FullStack Developer"
 >
   <main>
-    <div id="blurry-light-background-container">
-      <div id="blurry-light-background"></div>
+    <div id="hero-blurry-backgrond-container">
+      <div id="hero-blurry-background"></div>
     </div>
     <header id="hero">
       <div class="heroText">
@@ -48,8 +49,8 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
       <div class="image">
         <Picture
           src={edsonPimentaImage}
-          alt="Edson Pimenta's face picture."
-          loading="eager"
+          alt="Edson Pimenta's face."
+          loading="lazy"
           decoding="async"
           format="webp"
           fallbackFormat="jpeg"
@@ -76,6 +77,7 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
               href="https://github.com/eddyyxxyy"
               target="_blank"
               rel="noreferer"
+              aria-label="Edson's Github profile page"
               title="Github"
             >
               <Icon name="github-logo" size={32} />
@@ -86,6 +88,7 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
               href="https://www.linkedin.com/in/eeddyyxxyy/"
               target="_blank"
               rel="noreferer"
+              aria-label="Edson's LinkedIn profile page"
               title="LinkedIn"
             >
               <Icon name="linkedin-logo" size={32} />
@@ -96,6 +99,7 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
               href="https://www.youtube.com/@eddyxide"
               target="_blank"
               rel="noreferer"
+              aria-label="Edson's Youtube channel"
               title="Youtube"
             >
               <Icon name="youtube-logo" size={32} />
@@ -105,7 +109,79 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
       </div>
     </section>
     <section id="career">
-      <h2>Career</h2>
+      <div class="content">
+        <h2>Experience</h2>
+        <p>
+          With <strong>over 2 years of professional experience</strong>, I have
+          worked on several projects as a freelancer and employee using a <strong
+            >variety of technologies and architectures</strong
+          >. <strong>Maintaining, adding new features and fixing bugs</strong> in
+          proprietary or third-party systems is part of my routine as a programmer.
+          Here I'll focus on my formal work experience.
+        </p>
+        <div id="professionalExp">
+          <a
+            class="item"
+            href="https://www.faculdademetropolitana.edu.br/"
+            target="_blank"
+            rel="no-follow"
+          >
+            <div class="itemContent">
+              <span class="date">2023 - Apr 2024</span>
+              <div>
+                <h3 class="itemTitle">
+                  Desenvolvedor Web FullStack · Metropolitan Educação LTDA <Icon
+                    name="arrow_up_right"
+                    size={14}
+                  />
+                </h3>
+                <div class="itemDescription">
+                  <p>
+                    Working for a leading distance learning company, owner of
+                    FAMEF, FAMEESP and other educational institutions, I
+                    developed and improved web applications with PHP, CakePHP,
+                    NodeJS, TypeScript, NextJS, GraphQL, AWS and other
+                    technologies. My work has ranged from the development and
+                    maintenance of Back-End, DevOps and Front-End internal
+                    systems to analyzing and using the results of SEO research
+                    results to improve the ranking of our products open to
+                    clients/students.
+                  </p>
+                </div>
+                <div class="techBadges">
+                  <Badge text="php" iconLeft>
+                    <Icon name="check-icon" size={14} />
+                  </Badge>
+                  <Badge text="cakephp" iconLeft>
+                    <Icon name="check-icon" size={14} />
+                  </Badge>
+                  <Badge text="nodejs" iconLeft>
+                    <Icon name="check-icon" size={14} />
+                  </Badge>
+                  <Badge text="typescript" iconLeft>
+                    <Icon name="check-icon" size={14} />
+                  </Badge>
+                  <Badge text="nextjs" iconLeft>
+                    <Icon name="check-icon" size={14} />
+                  </Badge>
+                  <Badge text="graphql" iconLeft>
+                    <Icon name="check-icon" size={14} />
+                  </Badge>
+                  <Badge text="rest" iconLeft>
+                    <Icon name="check-icon" size={14} />
+                  </Badge>
+                  <Badge text="aws" iconLeft>
+                    <Icon name="check-icon" size={14} />
+                  </Badge>
+                  <Badge text="docker" iconLeft>
+                    <Icon name="check-icon" size={14} />
+                  </Badge>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
     </section>
     <section id="projects">
       <h2>Projects</h2>
@@ -114,8 +190,13 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
 </BaseLayout>
 
 <style>
-  main > :nth-child(odd) {
-    background-color: var(--neutral-100);
+  main > :nth-child(odd):not(#logo-carousel) {
+    background: radial-gradient(
+        circle at bottom,
+        rgba(35, 67, 85, 0.5),
+        var(--neutral-100)
+      ),
+      url(https://grainy-gradients.vercel.app/noise.svg);
   }
 
   main > :nth-child(even) {
@@ -124,7 +205,7 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
         transparent 0.1em
       ),
       linear-gradient(90deg, rgba(40, 163, 204, 0.05) 0.1em, transparent 0.1em);
-    background-size: 1.6rem 1.6rem;
+    background-size: 1.2rem 1.2rem;
   }
 
   #hero > * {
@@ -140,14 +221,14 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
     overflow: hidden;
   }
 
-  #blurry-light-background-container {
+  #hero-blurry-backgrond-container {
     position: relative;
     display: flex;
     width: 100%;
     padding: 0;
   }
 
-  #blurry-light-background {
+  #hero-blurry-background {
     z-index: -1;
     position: fixed;
     flex: 1;
@@ -178,11 +259,12 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
       var(--neutral-900),
       var(--primary)
     );
+    background-clip: border-box;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     width: fit-content;
     font-family: "Exo 2", serif;
-    font-size: 4rem;
+    font-size: 3.8rem;
     text-transform: uppercase;
     color: var(--primary-100);
     border-bottom: 3px solid var(--neutral-100);
@@ -206,6 +288,7 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
     align-items: center;
     overflow-x: hidden;
     white-space: nowrap;
+    background-color: var(--neutral-100);
   }
 
   #logo-carousel::before,
@@ -252,11 +335,12 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
   }
 
   section h2 {
-    font-size: 3.2rem;
+    font-size: 2.8rem;
     color: var(--neutral-700);
   }
 
-  #about {
+  #about,
+  #career {
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
@@ -288,8 +372,69 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
   }
 
   .content :is(p, strong) {
-    font-size: 2.2rem;
+    font-size: 2rem;
     margin-top: 2rem;
+  }
+
+  #professionalExp > .item {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    gap: 2.4rem;
+    background-color: var(--neutral);
+    background-image: linear-gradient(
+        rgba(40, 163, 204, 0.05) 0.1em,
+        transparent 0.1em
+      ),
+      linear-gradient(90deg, rgba(40, 163, 204, 0.05) 0.1em, transparent 0.1em);
+    background-size: 1.2rem 1.2rem;
+    padding: 2.4rem;
+    border: 1px solid var(--neutral-700);
+    border-radius: 8px;
+    margin-top: 4rem;
+    transition: all 0.2s ease-in-out;
+  }
+
+  #professionalExp > .item:hover,
+  #professionalExp > .item:focus {
+    filter: brightness(1.1);
+    box-shadow: rgba(255, 255, 255, 0.15) 0px 5px 15px 0px;
+  }
+
+  #professionalExp span {
+    font-family: "Exo 2", sans-serif;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    line-height: 2.2rem;
+    white-space: nowrap;
+  }
+
+  #professionalExp .itemTitle {
+    font-size: 2.2rem;
+    color: var(--neutral-900);
+  }
+
+  #professionalExp .itemTitle a {
+    font-size: 2.2rem;
+  }
+
+  #professionalExp .itemTitle a:hover,
+  #professionalExp .itemTitle a:focus {
+    border-bottom: 1px solid var(--neutral-100);
+  }
+
+  #professionalExp .itemDescription p {
+    font-size: 1.8rem;
+    color: var(--neutral-800);
+    margin-bottom: 1.8rem;
+    text-align: justify;
+  }
+
+  .techBadges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
   }
 
   #links {
@@ -385,6 +530,12 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
     #links {
       display: flex;
     }
+
+    #professionalExp > .item .itemContent {
+      display: flex;
+      align-items: start;
+      gap: 2.4rem;
+    }
   }
 
   @media (min-width: 1280px) {
@@ -401,6 +552,10 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
     .heroText > h1 {
       font-size: 5.4rem;
       margin-bottom: 1.2rem;
+    }
+
+    .content :is(p, strong) {
+      font-size: 2.2rem;
     }
   }
 </style>
