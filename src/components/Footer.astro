@@ -5,7 +5,6 @@ import { translationsFooter } from "@i18n/Footer";
 
 const { appVersion } = Astro.locals;
 
-const currentPathname = Astro.url.pathname.replace("/pt-br", "");
 const currentLang = Astro.currentLocale === "en" ? "en" : "pt-br";
 
 const translationObject = translationsFooter[currentLang];
@@ -20,6 +19,7 @@ const translationObject = translationsFooter[currentLang];
           href="https://github.com/eddyyxxyy"
           target="_blank"
           rel="noreferer"
+          aria-label={translationObject.githubLinkAriaLabel}
           title="Github"
         >
           <Icon name="github-logo" size={32} />
@@ -30,6 +30,7 @@ const translationObject = translationsFooter[currentLang];
           href="https://www.linkedin.com/in/eeddyyxxyy/"
           target="_blank"
           rel="noreferer"
+          aria-label={translationObject.linkedinLinkAriaLabel}
           title="LinkedIn"
         >
           <Icon name="linkedin-logo" size={32} />
@@ -40,6 +41,7 @@ const translationObject = translationsFooter[currentLang];
           href="https://www.youtube.com/@eddyxide"
           target="_blank"
           rel="noreferer"
+          aria-label={translationObject.youtubeChannelLinkAriaLabel}
           title="Youtube"
         >
           <Icon name="youtube-logo" size={32} />
@@ -48,6 +50,7 @@ const translationObject = translationsFooter[currentLang];
       <li>
         <a
           href={translationObject.resumeHref}
+          aria-label={translationObject.resumeLink}
           title={translationObject.resumeLink}
           download
         >
