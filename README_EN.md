@@ -34,7 +34,7 @@ Besides all that, I've "dockerized" the application for both development and pro
 docker compose up --build
 
 # Production environment:
-docker compose -f docker-compose.prod.yaml --build
+docker compose -f docker-compose.prod.yaml up --build
 ```
 
 > `--build` on those commands are only necessary if you want to actually build the application image.
