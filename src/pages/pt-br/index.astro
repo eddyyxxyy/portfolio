@@ -6,7 +6,7 @@ import { Icon } from "astro-icon/components";
 import heroImage from "@assets/hero_dark_decorative_image.svg";
 import edsonPimentaImage from "@assets/Edson_Pimenta_Face_Picture.webp";
 import CarouselIcons from "@/components/CarouselIcons.astro";
-import Badge from "@/components/Badge.astro";
+import Badges from "@/components/Badges.astro";
 
 const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
 ---
@@ -149,33 +149,64 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
                   </p>
                 </div>
                 <div class="techBadges">
-                  <Badge text="php" iconLeft>
-                    <Icon name="check-icon" size={14} />
-                  </Badge>
-                  <Badge text="cakephp" iconLeft>
-                    <Icon name="check-icon" size={14} />
-                  </Badge>
-                  <Badge text="nodejs" iconLeft>
-                    <Icon name="check-icon" size={14} />
-                  </Badge>
-                  <Badge text="typescript" iconLeft>
-                    <Icon name="check-icon" size={14} />
-                  </Badge>
-                  <Badge text="nextjs" iconLeft>
-                    <Icon name="check-icon" size={14} />
-                  </Badge>
-                  <Badge text="graphql" iconLeft>
-                    <Icon name="check-icon" size={14} />
-                  </Badge>
-                  <Badge text="rest" iconLeft>
-                    <Icon name="check-icon" size={14} />
-                  </Badge>
-                  <Badge text="aws" iconLeft>
-                    <Icon name="check-icon" size={14} />
-                  </Badge>
-                  <Badge text="docker" iconLeft>
-                    <Icon name="check-icon" size={14} />
-                  </Badge>
+                  <Badges
+                    badges={[
+                      {
+                        iconName: "check-icon",
+                        text: "php",
+                        iconSize: 14,
+                        iconLeft: true,
+                      },
+                      {
+                        iconName: "check-icon",
+                        text: "cakephp",
+                        iconSize: 14,
+                        iconLeft: true,
+                      },
+                      {
+                        iconName: "check-icon",
+                        text: "nodejs",
+                        iconSize: 14,
+                        iconLeft: true,
+                      },
+                      {
+                        iconName: "check-icon",
+                        text: "typescript",
+                        iconSize: 14,
+                        iconLeft: true,
+                      },
+                      {
+                        iconName: "check-icon",
+                        text: "nextjs",
+                        iconSize: 14,
+                        iconLeft: true,
+                      },
+                      {
+                        iconName: "check-icon",
+                        text: "graphql",
+                        iconSize: 14,
+                        iconLeft: true,
+                      },
+                      {
+                        iconName: "check-icon",
+                        text: "rest",
+                        iconSize: 14,
+                        iconLeft: true,
+                      },
+                      {
+                        iconName: "check-icon",
+                        text: "aws",
+                        iconSize: 14,
+                        iconLeft: true,
+                      },
+                      {
+                        iconName: "check-icon",
+                        text: "docker",
+                        iconSize: 14,
+                        iconLeft: true,
+                      },
+                    ]}
+                  />
                 </div>
               </div>
             </div>
