@@ -1,22 +1,30 @@
 ---
-interface Props {
+import { Icon } from "astro-icon/components";
+
+export interface Props {
   iconLeft?: boolean;
+  iconName?: string | undefined;
+  iconSize?: number;
   text: string;
 }
 
-const { iconLeft, text } = Astro.props;
+const { iconLeft, iconName, iconSize, text } = Astro.props;
 ---
 
 {
-  iconLeft ? (
-    <span>
-      <slot /> {text}
-    </span>
+  iconName ? (
+    iconLeft ? (
+      <span>
+        <Icon name={iconName} size={iconSize} /> {text}
+      </span>
+    ) : (
+      <span>
+        {text}
+        <Icon name={iconName} size={iconSize} />
+      </span>
+    )
   ) : (
-    <span>
-      {text}
-      <slot />
-    </span>
+    <span>{text}</span>
   )
 }
 

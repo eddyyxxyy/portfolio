@@ -1,0 +1,12 @@
+---
+import Badge from "./Badge.astro";
+import type { Props as BadgeProps } from "./Badge.astro";
+
+type Props = {
+  badges: BadgeProps[];
+};
+
+const { badges } = Astro.props;
+---
+
+{badges.map((badge) => <Badge {...badge} />)}
