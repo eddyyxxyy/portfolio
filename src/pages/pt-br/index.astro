@@ -215,7 +215,9 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
       </div>
     </section>
     <section id="projects">
-      <h2>Projetos</h2>
+      <div class="content">
+        <h2>Projects</h2>
+      </div>
     </section>
   </main>
 </BaseLayout>
@@ -371,7 +373,8 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
   }
 
   #about,
-  #career {
+  #career,
+  #projects {
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
@@ -566,6 +569,10 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
       display: flex;
       align-items: start;
       gap: 2.4rem;
+    }
+
+    #projects {
+      align-items: start;
     }
   }
 
