@@ -3,7 +3,8 @@ import { ViewTransitions } from "astro:transitions";
 
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
-import GlobalStyles from "@components/GlobalStyles.astro";
+
+import "@styles/global.css";
 
 const { appVersion } = Astro.locals;
 
@@ -62,7 +63,6 @@ const { canonicalUrl, pageDescription, pageTitle } = Astro.props;
 
       gtag("config", "G-3ZHMY35FBB");
     </script>
-    <GlobalStyles />
     <ViewTransitions />
   </head>
   <body>
