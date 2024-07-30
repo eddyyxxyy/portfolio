@@ -1,0 +1,164 @@
+---
+import type { HTMLTag, Polymorphic } from "astro/types";
+import Badge from "./Badge.astro";
+import { Image } from "astro:assets";
+
+type Props<Tag extends HTMLTag> = {
+  badges: string[];
+  content: string;
+  image?: ImageMetadata;
+  imageAlt?: string;
+  heading: string;
+} & Polymorphic<{ as: Tag }>;
+
+const {
+  as: Tag,
+  badges,
+  content,
+  image,
+  imageAlt = "",
+  heading,
+  ...props
+} = Astro.props;
+---
+
+<Tag {...props} class="card">
+  <h3>{heading}</h3>
+  {
+    image && (
+      <div class="image">
+        <Image src={image} alt={imageAlt} loading="lazy" format="webp" />
+      </div>
+    )
+  }
+  <p>{content}</p>
+  {
+    badges && (
+      <div class="badges">
+        {badges.map((badge: string) => (
+          <Badge text={badge} />
+        ))}
+      </div>
+    )
+  }
+</Tag>
+
+<style>
+  @property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    width: 100%;
+    background-color: var(--neutral);
+    padding: 2.8rem 3.2rem;
+    border: 1px solid var(--neutral-300);
+    border-radius: 8px;
+    box-shadow: rgba(99, 99, 99, 0.5) 0px 2px 8px 0px;
+    cursor: pointer;
+  }
+
+  .card:focus {
+    outline: 2px solid var(--neutral-900);
+  }
+
+  .card::after,
+  .card::before {
+    --angle: 0deg;
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    background-image: conic-gradient(
+      from var(--angle),
+      transparent 50%,
+      var(--primary),
+      var(--accent),
+      transparent
+    );
+    padding: 3px;
+    border-radius: inherit;
+    z-index: -1;
+    animation: 3s spin linear infinite;
+    opacity: 0;
+    transition: opacity 0.25s ease-in-out;
+  }
+
+  .card::before {
+    filter: blur(1.5rem);
+  }
+
+  .card:hover.card::after,
+  .card:focus.card::before {
+    opacity: 0.7;
+  }
+
+  h3 {
+    text-align: center;
+    font-size: 2.6rem;
+  }
+
+  .image {
+    width: 100%;
+    min-height: 18rem;
+    max-height: 12rem;
+    border: 1px solid var(--neutral-300);
+    border-radius: 8px;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    filter: saturate(0.8);
+    transition: all 0.25s ease-in-out;
+  }
+
+  .card:hover .image,
+  .card:focus .image {
+    scale: 0.99;
+    filter: saturate(1);
+  }
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  p {
+    font-size: 2.2rem;
+    text-align: justify;
+  }
+
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: auto;
+  }
+
+  @keyframes spin {
+    from {
+      --angle: 0deg;
+    }
+    to {
+      --angle: 360deg;
+    }
+  }
+
+  @media (min-width: 1000px) {
+    .image {
+      width: 100%;
+      min-height: 12rem;
+    }
+  }
+</style>
