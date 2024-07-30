@@ -1,8 +1,18 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { Picture } from "astro:assets";
+import { Icon } from "astro-icon/components";
 
 import heroImage from "@assets/hero_dark_decorative_image.svg";
+import edsonPimentaImage from "@assets/Edson_Pimenta_Face_Picture.webp";
+import toDoListImage from "@assets/project_pics/todo-list.webp";
+import coffeeDeliveryImage from "@assets/project_pics/coffee-delivery.webp";
+import dailyDietApiImage from "@assets/project_pics/daily-diet-api.webp";
+import toTempImage from "@assets/project_pics/to-temp.webp";
+
+import CarouselIcons from "@/components/CarouselIcons.astro";
+import Card from "@/components/Card.astro";
+import ProfessionalExp from "@/components/ProfessionalExp.astro";
 
 const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
 ---
@@ -13,6 +23,9 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
   pageTitle="Edson Pimenta (eddyyxxyy) | FullStack Developer"
 >
   <main>
+    <div id="hero-blurry-backgrond-container">
+      <div id="hero-blurry-background"></div>
+    </div>
     <header id="hero">
       <div class="heroText">
         <p>Hello, my name is</p>
@@ -30,13 +43,192 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
         />
       </div>
     </header>
+    <div id="logo-carousel">
+      <div class="slide">
+        <CarouselIcons />
+      </div>
+      <div class="slide">
+        <CarouselIcons />
+      </div>
+    </div>
     <section id="about">
-      <h2>About me</h2>
+      <div class="image">
+        <Picture
+          src={edsonPimentaImage}
+          alt="Edson Pimenta's face."
+          loading="lazy"
+          decoding="async"
+          format="webp"
+          fallbackFormat="jpeg"
+        />
+      </div>
+      <div class="content">
+        <h2>About me</h2>
+        <p>
+          Passionate about creating innovative, high-impact web solutions and
+          worked at a leading distance education company, <strong
+            >I develop and improve scalable, secure and user-friendly web
+            applications built with SEO best practices</strong
+          >. I'm specializing in Node, TypeScript, React, Tailwind, NextJS, AWS,
+          Containers (Docker and Kubernetes) and Design Patterns.
+        </p>
+        <p>
+          I have knowledge of <strong
+            >relational and non-relational databases and containers</strong
+          >, for example: MySQL, PostgreSQL, MongoDB and Docker.
+        </p>
+        <ul id="links">
+          <li>
+            <a
+              href="https://github.com/eddyyxxyy"
+              target="_blank"
+              rel="noreferer"
+              aria-label="Edson's Github profile page"
+              title="Github"
+            >
+              <Icon name="github-logo" size={32} />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/eeddyyxxyy/"
+              target="_blank"
+              rel="noreferer"
+              aria-label="Edson's LinkedIn profile page"
+              title="LinkedIn"
+            >
+              <Icon name="linkedin-logo" size={32} />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.youtube.com/@eddyxide"
+              target="_blank"
+              rel="noreferer"
+              aria-label="Edson's Youtube channel"
+              title="Youtube"
+            >
+              <Icon name="youtube-logo" size={32} />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section id="career">
+      <div class="content">
+        <h2>Experience</h2>
+        <p>
+          With <strong>over 2 years of professional experience</strong>, I have
+          worked on several projects as a freelancer and employee using a <strong
+            >variety of technologies and architectures</strong
+          >. <strong>Maintaining, adding new features and fixing bugs</strong> in
+          proprietary or third-party systems is part of my routine as a programmer.
+          Here I'll focus on my formal work experience.
+        </p>
+        <ProfessionalExp
+          job={{
+            title: "FullStack Web Developer",
+            where: "Metropolitan Educação LTDA",
+            description:
+              "Working for a leading distance learning company, owner of FAMEF, FAMEESP and other educational institutions, I developed and improved web applications with PHP, CakePHP, NodeJS, TypeScript, NextJS, GraphQL, AWS and other technologies. My work has ranged from the development and maintenance of Back-End, DevOps and Front-End internal systems to analyzing and using the results of SEO research results to improve the ranking of our products open to clients/students.",
+            date: {
+              from: "2023",
+              to: "Apr 2024",
+            },
+            badges: [
+              "PHP",
+              "CakePHP",
+              "NodeJs",
+              "TypeScript",
+              "NextJs",
+              "GraphQL",
+              "Rest",
+              "AWS",
+              "Docker",
+              "JQuery",
+            ],
+            link: "https://www.faculdademetropolitana.edu.br/",
+          }}
+        />
+      </div>
+    </section>
+    <section id="projects">
+      <div class="content">
+        <h2>Projects</h2>
+        <div id="projectsCards">
+          <Card
+            as="a"
+            href="https://one-more-to-do-list.vercel.app/"
+            target="_blank"
+            rel="nofollow"
+            heading="One More ToDo List"
+            image={toDoListImage}
+            content="A simple web application to manage your daily tasks with a modern and pleasing UI."
+            badges={["ReactJs", "Vite", "TypeScript", "CSS Modules"]}
+          />
+          <Card
+            as="a"
+            href="https://coffee-delivery-eddyyxxyy.vercel.app/"
+            target="_blank"
+            rel="nofollow"
+            heading="Coffee Delivery"
+            image={coffeeDeliveryImage}
+            content="Web application for managing a shopping cart for a fictitious coffee shop, having an English and Portuguese UI."
+            badges={["ReactJs", "Vite", "TypeScript", "TailwindCSS", "i18next"]}
+          />
+          <Card
+            as="a"
+            href="https://github.com/eddyyxxyy/daily-diet-api"
+            target="_blank"
+            rel="nofollow"
+            heading="Daily Diet API"
+            image={dailyDietApiImage}
+            content="Robust API for handling notes and reminders of our free meals and diet for a well-balanced routine."
+            badges={[
+              "NodeJS",
+              "TypeScript",
+              "Fastify",
+              "PostgreSQL",
+              "Knex",
+              "Zod",
+              "Vitest",
+            ]}
+          />
+          <Card
+            as="a"
+            href="https://pypi.org/project/totemp/"
+            target="_blank"
+            rel="nofollow"
+            heading="ToTemp"
+            image={toTempImage}
+            content="ToTemp is an API for temperature representation, providing dynamic Classes able to represent temperature scales and perform conversions, arithmetic operations and comparisons between them and numeric values."
+            badges={["Python", "MetaProgramming", "OOP"]}
+          />
+        </div>
+      </div>
     </section>
   </main>
 </BaseLayout>
 
 <style>
+  main > :nth-child(odd):not(#logo-carousel) {
+    background: radial-gradient(
+        circle at bottom,
+        rgba(35, 67, 85, 0.5),
+        var(--neutral-100)
+      ),
+      url(https://grainy-gradients.vercel.app/noise.svg);
+  }
+
+  main > :nth-child(even) {
+    background-image: linear-gradient(
+        rgba(40, 163, 204, 0.05) 0.1em,
+        transparent 0.1em
+      ),
+      linear-gradient(90deg, rgba(40, 163, 204, 0.05) 0.1em, transparent 0.1em);
+    background-size: 1.2rem 1.2rem;
+  }
+
   #hero > * {
     max-width: 650px;
   }
@@ -47,6 +239,29 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
     align-items: center;
     gap: 4rem;
     flex-wrap: wrap;
+    overflow: hidden;
+  }
+
+  #hero-blurry-backgrond-container {
+    position: relative;
+    display: flex;
+    width: 100%;
+    padding: 0;
+  }
+
+  #hero-blurry-background {
+    z-index: -1;
+    position: fixed;
+    flex: 1;
+    top: -250px;
+    left: 0;
+    width: 100%;
+    min-height: 450px;
+    background-image: radial-gradient(
+      closest-side,
+      rgba(40, 163, 204, 0.25),
+      var(--neutral)
+    );
   }
 
   .heroText :first-child {
@@ -65,10 +280,12 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
       var(--neutral-900),
       var(--primary)
     );
+    background-clip: border-box;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    width: fit-content;
     font-family: "Exo 2", serif;
-    font-size: 4rem;
+    font-size: 3.8rem;
     text-transform: uppercase;
     color: var(--primary-100);
     border-bottom: 3px solid var(--neutral-100);
@@ -86,8 +303,140 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
     height: 100%;
   }
 
-  main > :nth-child(even) {
+  #logo-carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow-x: hidden;
+    white-space: nowrap;
     background-color: var(--neutral-100);
+  }
+
+  #logo-carousel::before,
+  #logo-carousel::after {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    width: 12rem;
+    height: 100%;
+    content: "";
+  }
+
+  #logo-carousel::before {
+    left: 0;
+    background: linear-gradient(
+      to left,
+      rgba(255, 255, 255, 0),
+      var(--neutral-100)
+    );
+  }
+
+  #logo-carousel::after {
+    right: 0;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0),
+      var(--neutral-100)
+    );
+  }
+
+  #logo-carousel:hover .slide {
+    animation-play-state: paused;
+  }
+
+  .slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: 60s slide infinite linear;
+  }
+
+  section {
+    scroll-margin-top: 6rem;
+  }
+
+  section h2 {
+    font-size: 2.8rem;
+    color: var(--neutral-700);
+  }
+
+  #about,
+  #career,
+  #projects {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+  }
+
+  #about .image {
+    max-width: 350px;
+    height: 100%;
+  }
+
+  #about img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+    box-shadow:
+      var(--neutral-600) -3px 3px,
+      var(--neutral-500) -6px 6px,
+      var(--neutral-400) -9px 9px,
+      var(--neutral-300) -12px 12px,
+      var(--neutral-200) -15px 15px;
+  }
+
+  .content {
+    width: 100%;
+    max-width: 650px;
+    margin-bottom: 2rem;
+  }
+
+  .content :is(p, strong, div, a) {
+    font-size: 2rem;
+    margin-top: 2rem;
+  }
+
+  #projectsCards {
+    display: grid;
+    gap: 1.4rem;
+  }
+
+  #links {
+    display: none;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: start;
+    gap: 2.4rem;
+    list-style: none;
+    margin-top: 2.4rem;
+  }
+
+  #links a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.4rem;
+    background-color: var(--neutral-100);
+    padding: 1.2rem;
+    border-radius: 12px;
+    transition: filter 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  #links a:is(:hover, :focus) {
+    filter: brightness(1.1);
+  }
+
+  @keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
   }
 
   @media (min-width: 1000px) {
@@ -124,6 +473,40 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
     .heroImage {
       width: 100%;
     }
+
+    #logo-carousel::before,
+    #logo-carousel::after {
+      width: 25rem;
+    }
+
+    #about {
+      flex-direction: row;
+      align-items: center;
+      gap: 8rem;
+    }
+
+    #about .image {
+      max-width: 300px;
+      min-width: 300px;
+    }
+
+    .content {
+      width: 100%;
+      max-width: initial;
+    }
+
+    #links {
+      display: flex;
+    }
+
+    #projects {
+      align-items: start;
+    }
+
+    #projectsCards {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.8rem;
+    }
   }
 
   @media (min-width: 1280px) {
@@ -140,6 +523,16 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
     .heroText > h1 {
       font-size: 5.4rem;
       margin-bottom: 1.2rem;
+    }
+
+    .content :is(p, strong) {
+      font-size: 2.2rem;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    #projectsCards {
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 </style>

@@ -1,0 +1,130 @@
+---
+import Badges from "./Badges.astro";
+import { Icon } from "astro-icon/components";
+
+type Date = {
+  from: string;
+  to: string;
+};
+
+type Job = {
+  title: string;
+  where: string;
+  description: string;
+  date: Date;
+  badges: string[];
+  link: string | URL;
+};
+
+type Props = {
+  job: Job;
+};
+
+const { job } = Astro.props;
+---
+
+<div id="professionalExp">
+  <a class="item" href={job.link} target="_blank" rel="nofollow">
+    <div class="itemContent">
+      <span class="date">{job.date.from} - {job.date.to}</span>
+      <div>
+        <h3 class="itemTitle">
+          {job.title} · {job.where}
+          <Icon name="arrow_up_right" size={14} />
+        </h3>
+        <div class="itemDescription">
+          <p>
+            {job.description}
+          </p>
+        </div>
+        <div class="techBadges">
+          <Badges
+            badges={job.badges.map((badge: string) => {
+              return {
+                text: badge,
+              };
+            })}
+          />
+        </div>
+      </div>
+    </div>
+  </a>
+</div>
+
+<style>
+  .item {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    gap: 2.4rem;
+    background-color: var(--neutral);
+    background-image: linear-gradient(
+        rgba(40, 163, 204, 0.05) 0.1em,
+        transparent 0.1em
+      ),
+      linear-gradient(90deg, rgba(40, 163, 204, 0.05) 0.1em, transparent 0.1em);
+    background-size: 1.2rem 1.2rem;
+    padding: 2.4rem;
+    border: 1px solid var(--neutral-700);
+    border-radius: 8px;
+    margin-top: 4rem;
+    transition: all 0.2s ease-in-out;
+    box-shadow: rgba(99, 99, 99, 0.5) 0px 2px 8px 0px;
+  }
+
+  .item:hover,
+  .item:focus {
+    filter: brightness(1.1);
+    box-shadow: rgba(255, 255, 255, 0.15) 0px 5px 15px 0px;
+  }
+
+  span {
+    font-family: "Exo 2", sans-serif;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    line-height: 2.2rem;
+    white-space: nowrap;
+  }
+
+  .itemTitle {
+    font-size: 2.2rem;
+    color: var(--neutral-900);
+  }
+
+  .itemTitle a {
+    font-size: 2.2rem;
+  }
+
+  .itemTitle a:hover,
+  .itemTitle a:focus {
+    border-bottom: 1px solid var(--neutral-100);
+  }
+
+  .itemDescription p {
+    font-size: 2rem;
+    color: var(--neutral-800);
+    margin: 2rem 0;
+    text-align: justify;
+  }
+
+  .techBadges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  @media (width < 1000px) {
+    .itemTitle {
+      margin-top: 1.4rem;
+    }
+  }
+
+  @media (width >= 1000px) {
+    .item .itemContent {
+      display: flex;
+      align-items: start;
+      gap: 2.4rem;
+    }
+  }
+</style>

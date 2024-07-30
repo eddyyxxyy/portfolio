@@ -57,11 +57,11 @@ const translationObject = translationsHeader[currentLang];
           : "#projects"}>{translationObject.projects}</a
       >
     </li>
-    <li>
+    <!-- <li>
       <a href={getRelativeLocaleUrl(Astro.currentLocale ?? "en", "/blog")}
         >Blog <Icon name="arrow_up_right" size={12} /></a
       >
-    </li>
+    </li> -->
     <li>
       <menu id="options">
         <li>
@@ -143,9 +143,10 @@ const translationObject = translationsHeader[currentLang];
 
 <style>
   header {
-    position: sticky;
-    top: 0;
+    z-index: 2;
+    position: fixed;
     height: 6rem;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -320,7 +321,7 @@ const translationObject = translationsHeader[currentLang];
     }
 
     .logo span {
-      font-size: 2rem;
+      font-size: 1.8rem;
     }
 
     #menu,
@@ -407,7 +408,7 @@ const translationObject = translationsHeader[currentLang];
 
   @media (min-width: 1280px) {
     header {
-      padding: 1rem 15%;
+      padding: 1rem 18%;
     }
   }
 </style>
