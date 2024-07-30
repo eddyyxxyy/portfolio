@@ -5,8 +5,14 @@ import { Icon } from "astro-icon/components";
 
 import heroImage from "@assets/hero_dark_decorative_image.svg";
 import edsonPimentaImage from "@assets/Edson_Pimenta_Face_Picture.webp";
+import toDoListImage from "@assets/project_pics/todo-list.webp";
+import coffeeDeliveryImage from "@assets/project_pics/coffee-delivery.webp";
+import dailyDietApiImage from "@assets/project_pics/daily-diet-api.webp";
+import toTempImage from "@assets/project_pics/to-temp.webp";
+
 import CarouselIcons from "@/components/CarouselIcons.astro";
-import Badges from "@/components/Badges.astro";
+import Card from "@/components/Card.astro";
+import ProfessionalExp from "@/components/ProfessionalExp.astro";
 
 const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
 ---
@@ -119,104 +125,86 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
           proprietary or third-party systems is part of my routine as a programmer.
           Here I'll focus on my formal work experience.
         </p>
-        <div id="professionalExp">
-          <a
-            class="item"
-            href="https://www.faculdademetropolitana.edu.br/"
-            target="_blank"
-            rel="no-follow"
-          >
-            <div class="itemContent">
-              <span class="date">2023 - Apr 2024</span>
-              <div>
-                <h3 class="itemTitle">
-                  FullStack Web Developer · Metropolitan Educação LTDA <Icon
-                    name="arrow_up_right"
-                    size={14}
-                  />
-                </h3>
-                <div class="itemDescription">
-                  <p>
-                    Working for a leading distance learning company, owner of
-                    FAMEF, FAMEESP and other educational institutions, I
-                    developed and improved web applications with PHP, CakePHP,
-                    NodeJS, TypeScript, NextJS, GraphQL, AWS and other
-                    technologies. My work has ranged from the development and
-                    maintenance of Back-End, DevOps and Front-End internal
-                    systems to analyzing and using the results of SEO research
-                    results to improve the ranking of our products open to
-                    clients/students.
-                  </p>
-                </div>
-                <div class="techBadges">
-                  <Badges
-                    badges={[
-                      {
-                        iconName: "check-icon",
-                        text: "php",
-                        iconSize: 14,
-                        iconLeft: true,
-                      },
-                      {
-                        iconName: "check-icon",
-                        text: "cakephp",
-                        iconSize: 14,
-                        iconLeft: true,
-                      },
-                      {
-                        iconName: "check-icon",
-                        text: "nodejs",
-                        iconSize: 14,
-                        iconLeft: true,
-                      },
-                      {
-                        iconName: "check-icon",
-                        text: "typescript",
-                        iconSize: 14,
-                        iconLeft: true,
-                      },
-                      {
-                        iconName: "check-icon",
-                        text: "nextjs",
-                        iconSize: 14,
-                        iconLeft: true,
-                      },
-                      {
-                        iconName: "check-icon",
-                        text: "graphql",
-                        iconSize: 14,
-                        iconLeft: true,
-                      },
-                      {
-                        iconName: "check-icon",
-                        text: "rest",
-                        iconSize: 14,
-                        iconLeft: true,
-                      },
-                      {
-                        iconName: "check-icon",
-                        text: "aws",
-                        iconSize: 14,
-                        iconLeft: true,
-                      },
-                      {
-                        iconName: "check-icon",
-                        text: "docker",
-                        iconSize: 14,
-                        iconLeft: true,
-                      },
-                    ]}
-                  />
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
+        <ProfessionalExp
+          job={{
+            title: "FullStack Web Developer",
+            where: "Metropolitan Educação LTDA",
+            description:
+              "Working for a leading distance learning company, owner of FAMEF, FAMEESP and other educational institutions, I developed and improved web applications with PHP, CakePHP, NodeJS, TypeScript, NextJS, GraphQL, AWS and other technologies. My work has ranged from the development and maintenance of Back-End, DevOps and Front-End internal systems to analyzing and using the results of SEO research results to improve the ranking of our products open to clients/students.",
+            date: {
+              from: "2023",
+              to: "Apr 2024",
+            },
+            badges: [
+              "PHP",
+              "CakePHP",
+              "NodeJs",
+              "TypeScript",
+              "NextJs",
+              "GraphQL",
+              "Rest",
+              "AWS",
+              "Docker",
+              "JQuery",
+            ],
+            link: "https://www.faculdademetropolitana.edu.br/",
+          }}
+        />
       </div>
     </section>
     <section id="projects">
       <div class="content">
         <h2>Projects</h2>
+        <div id="projectsCards">
+          <Card
+            as="a"
+            href="https://one-more-to-do-list.vercel.app/"
+            target="_blank"
+            rel="nofollow"
+            heading="One More ToDo List"
+            image={toDoListImage}
+            content="A simple web application to manage your daily tasks with a modern and pleasing UI."
+            badges={["ReactJs", "Vite", "TypeScript", "CSS Modules"]}
+          />
+          <Card
+            as="a"
+            href="https://coffee-delivery-eddyyxxyy.vercel.app/"
+            target="_blank"
+            rel="nofollow"
+            heading="Coffee Delivery"
+            image={coffeeDeliveryImage}
+            content="Web application for managing a shopping cart for a fictitious coffee shop, having an English and Portuguese UI."
+            badges={["ReactJs", "Vite", "TypeScript", "TailwindCSS", "i18next"]}
+          />
+          <Card
+            as="a"
+            href="https://github.com/eddyyxxyy/daily-diet-api"
+            target="_blank"
+            rel="nofollow"
+            heading="Daily Diet API"
+            image={dailyDietApiImage}
+            content="Robust API for handling notes and reminders of our free meals and diet for a well-balanced routine."
+            badges={[
+              "NodeJS",
+              "TypeScript",
+              "Fastify",
+              "PostgreSQL",
+              "Knex",
+              "Zod",
+              "Vitest",
+            ]}
+          />
+          <Card
+            as="a"
+            href="https://pypi.org/project/totemp/"
+            target="_blank"
+            rel="nofollow"
+            heading="ToTemp"
+            image={toTempImage}
+            content="ToTemp is an API for temperature representation, providing dynamic Classes able to represent temperature scales and perform conversions, arithmetic operations and comparisons between them and numeric values."
+            badges={["Python", "MetaProgramming", "OOP"]}
+          />
+        </div>
       </div>
     </section>
   </main>
@@ -401,74 +389,19 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
   }
 
   .content {
+    width: 100%;
     max-width: 650px;
     margin-bottom: 2rem;
   }
 
-  .content :is(p, strong) {
+  .content :is(p, strong, div, a) {
     font-size: 2rem;
     margin-top: 2rem;
   }
 
-  #professionalExp > .item {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: space-between;
-    gap: 2.4rem;
-    background-color: var(--neutral);
-    background-image: linear-gradient(
-        rgba(40, 163, 204, 0.05) 0.1em,
-        transparent 0.1em
-      ),
-      linear-gradient(90deg, rgba(40, 163, 204, 0.05) 0.1em, transparent 0.1em);
-    background-size: 1.2rem 1.2rem;
-    padding: 2.4rem;
-    border: 1px solid var(--neutral-700);
-    border-radius: 8px;
-    margin-top: 4rem;
-    transition: all 0.2s ease-in-out;
-  }
-
-  #professionalExp > .item:hover,
-  #professionalExp > .item:focus {
-    filter: brightness(1.1);
-    box-shadow: rgba(255, 255, 255, 0.15) 0px 5px 15px 0px;
-  }
-
-  #professionalExp span {
-    font-family: "Exo 2", sans-serif;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    line-height: 2.2rem;
-    white-space: nowrap;
-  }
-
-  #professionalExp .itemTitle {
-    font-size: 2.2rem;
-    color: var(--neutral-900);
-  }
-
-  #professionalExp .itemTitle a {
-    font-size: 2.2rem;
-  }
-
-  #professionalExp .itemTitle a:hover,
-  #professionalExp .itemTitle a:focus {
-    border-bottom: 1px solid var(--neutral-100);
-  }
-
-  #professionalExp .itemDescription p {
-    font-size: 1.8rem;
-    color: var(--neutral-800);
-    margin-bottom: 1.8rem;
-    text-align: justify;
-  }
-
-  .techBadges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
+  #projectsCards {
+    display: grid;
+    gap: 1.4rem;
   }
 
   #links {
@@ -553,26 +486,26 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
     }
 
     #about .image {
-      max-width: 450px;
+      max-width: 300px;
       min-width: 300px;
     }
 
     .content {
-      max-width: fit-content;
+      width: 100%;
+      max-width: initial;
     }
 
     #links {
       display: flex;
     }
 
-    #professionalExp > .item .itemContent {
-      display: flex;
-      align-items: start;
-      gap: 2.4rem;
-    }
-
     #projects {
       align-items: start;
+    }
+
+    #projectsCards {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.8rem;
     }
   }
 
@@ -594,6 +527,12 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
 
     .content :is(p, strong) {
       font-size: 2.2rem;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    #projectsCards {
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 </style>
