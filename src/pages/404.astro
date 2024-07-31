@@ -1,6 +1,11 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import LinkButton from "@/components/LinkButton.astro";
+import { Picture } from "astro:assets";
+
+import notFoundImage from "@assets/page_not_found.svg";
 import { translations404 } from "@/i18n/404";
+import { getRelativeLocaleUrl } from "astro:i18n";
 
 const currentTranslation = Astro.currentLocale === "en" ? "en" : "pt-br";
 
@@ -11,7 +16,88 @@ const translationObject = translations404[currentTranslation];
   pageTitle={translationObject.pageTitle}
   pageDescription={translationObject.pageTitle}
 >
-  <h1>
-    {translationObject.h1}
-  </h1>
+  <main>
+    <div id="hero">
+      <div id="cta-back-to-home">
+        <h1>
+          {translationObject.h1}
+        </h1>
+        <p>{translationObject.p}</p>
+        <div id="not-found-image-container">
+          <Picture
+            src={notFoundImage}
+            alt="Ilustration of a computer with error 404 while accessing a webpage."
+            loading="eager"
+            decoding="async"
+            format="svg"
+            fallbackFormat="png"
+          />
+        </div>
+        <div id="cta">
+          <LinkButton
+            href={getRelativeLocaleUrl(Astro.currentLocale ?? "en", "/")}
+            text={translationObject.link}
+          />
+        </div>
+      </div>
+    </div>
+  </main>
 </BaseLayout>
+
+<style>
+  #hero {
+    margin: 0 auto;
+  }
+
+  #cta-back-to-home {
+    text-align: center;
+  }
+
+  #cta-back-to-home :not(:last-child) {
+    margin-bottom: 2.4rem;
+  }
+
+  #not-found-image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #not-found-image-container img {
+    width: 100%;
+  }
+
+  #cta {
+    display: flex;
+    justify-content: center;
+  }
+
+  h1 {
+    font-size: 3.2rem;
+    color: var(--primary-100);
+  }
+
+  p {
+    font-size: 1.8rem;
+  }
+
+  @media (max-width: 600px) {
+    #not-found-image-container img {
+      max-height: 300px;
+    }
+
+    #cta-back-to-home > :last-child {
+      margin-bottom: 2.4rem;
+    }
+  }
+
+  @media (min-width: 1000px) {
+    h1 {
+      font-size: 4.4rem;
+    }
+
+    p {
+      font-size: 2.2rem;
+    }
+  }
+</style>

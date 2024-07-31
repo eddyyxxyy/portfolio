@@ -13,7 +13,8 @@ Hello! I'm **Edson Pimenta**, a **full-stack developer** constantly evolving, **
 Focusing on the **delivery of useful and performant content**, I chose the following technologies:
 
 - _Astro_;
-- _TypeScript_.
+- _TypeScript_;
+- _Docker_.
 
 And for **style consistency and code quality**:
 
@@ -23,6 +24,22 @@ And for **style consistency and code quality**:
 - _Commitlint_;
 - _Lint Staged_;
 - _Simple Import Sort_.
+
+### About Docker containers
+
+Besides all that, I've "dockerized" the application for both development and production environments, using the Astro server for the development env and Nginx for production. Both are orchestrated by `docker compose`, access them easily with the following commands on your terminal:
+
+```bash
+# Development environment:
+docker compose up --build
+
+# Production environment:
+docker compose -f docker-compose.prod.yaml up --build
+```
+
+> `--build` on those commands are only necessary if you want to actually build the application image.
+
+Just by doing that you'll be able to access through port 3000 of your computer the application, both the envs are being served through the same port. It will be necessary, after running the selected container, access: http://localhost:3000/.
 
 ## License
 

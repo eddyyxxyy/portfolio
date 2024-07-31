@@ -13,7 +13,8 @@ Olá! Sou **Edson Pimenta**, um **desenvolvedor full-stack** em constante evolu�
 Com foco na **entrega de conteúdo útil e performático**, optei pelas seguintes tecnologias:
 
 - _Astro_;
-- _TypeScript_.
+- _TypeScript_;
+- _Docker_.
 
 E para a **consistência de estilo e qualidade de código**:
 
@@ -23,6 +24,22 @@ E para a **consistência de estilo e qualidade de código**:
 - _Commitlint_;
 - _Lint Staged_;
 - _Simple Import Sort_.
+
+### Em relação a containers Docker
+
+Além disso, "_dockerizei_" a aplicação para ter um ambiente de desenvolvimento utilizando o próprio servidor do Astro e um ambiente de produção com Nginx, ambos facilmente acessíveis à partir de suas imagens orquestradas pelo `docker compose`. Acesse-os com os seguintes comandos em seu terminal:
+
+```bash
+# Ambiente de desenvolvimento:
+docker compose up --build
+
+# Ambiente de produção:
+docker compose -f docker-compose.prod.yaml up --build
+```
+
+> `--build` só é necessário caso você queira realmente "_buildar_" as imagens da aplicação.
+
+Dessa forma você terá acesso na porta 3000 do seu computador à aplicação, em ambos os ambientes. Só será necessário, após subir o container de sua preferência, acessar: http://localhost:3000/.
 
 ## Licença
 

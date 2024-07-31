@@ -6,6 +6,8 @@ import { Icon } from "astro-icon/components";
 import logoColoured from "@assets/logo_coloured.webp";
 import { translationsHeader } from "@i18n/Header";
 
+const { appVersion } = Astro.locals;
+
 const currentPathname = Astro.url.pathname.replace("/pt-br", "");
 const currentLang = Astro.currentLocale === "en" ? "en" : "pt-br";
 
@@ -55,11 +57,11 @@ const translationObject = translationsHeader[currentLang];
           : "#projects"}>{translationObject.projects}</a
       >
     </li>
-    <li>
+    <!-- <li>
       <a href={getRelativeLocaleUrl(Astro.currentLocale ?? "en", "/blog")}
         >Blog <Icon name="arrow_up_right" size={12} /></a
       >
-    </li>
+    </li> -->
     <li>
       <menu id="options">
         <li>
@@ -91,9 +93,7 @@ const translationObject = translationsHeader[currentLang];
   </nav>
 </header>
 
-<script>
-  import { navigate } from "astro:transitions/client";
-
+<script define:vars={{ appVersion }}>
   document.addEventListener("astro:page-load", () => {
     const headerElement = document.querySelector("header");
     const navMenuElement = document.getElementById("menu");
@@ -120,12 +120,17 @@ const translationObject = translationsHeader[currentLang];
         document.documentElement.dataset.theme = themeSelectElement.value;
 
         localStorage.setItem(
-          "eddyyxxyy-portfolio-theme:0.1.0",
+          "eddyyxxyy-portfolio-theme:" + appVersion,
           themeSelectElement.value,
         );
       });
     }
+  });
+</script>
+<script>
+  import { navigate } from "astro:transitions/client";
 
+  document.addEventListener("astro:page-load", () => {
     const selectLangElement = document.getElementById("languages");
 
     if (selectLangElement instanceof HTMLSelectElement) {
@@ -138,9 +143,10 @@ const translationObject = translationsHeader[currentLang];
 
 <style>
   header {
-    position: sticky;
-    top: 0;
+    z-index: 2;
+    position: fixed;
     height: 6rem;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -315,7 +321,7 @@ const translationObject = translationsHeader[currentLang];
     }
 
     .logo span {
-      font-size: 2rem;
+      font-size: 1.8rem;
     }
 
     #menu,
@@ -402,7 +408,7 @@ const translationObject = translationsHeader[currentLang];
 
   @media (min-width: 1280px) {
     header {
-      padding: 1rem 15%;
+      padding: 1rem 18%;
     }
   }
 </style>

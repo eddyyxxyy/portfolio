@@ -2,7 +2,11 @@
 import { ViewTransitions } from "astro:transitions";
 
 import Header from "@/components/Header.astro";
-import GlobalStyles from "@components/GlobalStyles.astro";
+import Footer from "@/components/Footer.astro";
+
+import "@styles/global.css";
+
+const { appVersion } = Astro.locals;
 
 const currentLocale = Astro.currentLocale ?? "en";
 
@@ -59,23 +63,25 @@ const { canonicalUrl, pageDescription, pageTitle } = Astro.props;
 
       gtag("config", "G-3ZHMY35FBB");
     </script>
-    <GlobalStyles />
     <ViewTransitions />
   </head>
   <body>
     <Header />
     <slot />
-    <script is:inline>
+    <Footer />
+    <script define:vars={{ appVersion }} is:inline>
       function setDarkMode(document) {
         const themeSelectElement = document.getElementById("colors");
 
         const selectedThemeIndex =
-          localStorage["eddyyxxyy-portfolio-theme:0.1.0"] === "light" ? 0 : 1;
+          localStorage["eddyyxxyy-portfolio-theme:" + appVersion] === "light"
+            ? 0
+            : 1;
 
         themeSelectElement.selectedIndex = selectedThemeIndex;
 
         const selectedTheme =
-          localStorage["eddyyxxyy-portfolio-theme:0.1.0"] === "light"
+          localStorage["eddyyxxyy-portfolio-theme:" + appVersion] === "light"
             ? "light"
             : "dark";
 
