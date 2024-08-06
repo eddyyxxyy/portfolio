@@ -7,6 +7,7 @@ const translationsFooter = {
     githubLinkAriaLabel: "Edson's Github profile page",
     linkedinLinkAriaLabel: "Edson's LinkedIn profile page",
     youtubeChannelLinkAriaLabel: "Edson's Youtube channel",
+    emailLinkAriaLabel: "Edson's E-mail",
   },
   "pt-br": {
     h1: "Conecte-se comigo",
@@ -16,6 +17,7 @@ const translationsFooter = {
     githubLinkAriaLabel: "Perfil do Github do Edson",
     linkedinLinkAriaLabel: "Perfil do LinkedIn do Edson",
     youtubeChannelLinkAriaLabel: "Canal no Youtube do Edson",
+    emailLinkAriaLabel: "E-mail do Edson Pimenta",
   },
 };
 
