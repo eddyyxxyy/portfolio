@@ -1,5 +1,4 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
 import { Picture } from "astro:assets";
 import { Icon } from "astro-icon/components";
 
@@ -10,6 +9,7 @@ import coffeeDeliveryImage from "@assets/project_pics/coffee-delivery.webp";
 import dailyDietApiImage from "@assets/project_pics/daily-diet-api.webp";
 import toTempImage from "@assets/project_pics/to-temp.webp";
 
+import BaseLayout from "@layouts/BaseLayout.astro";
 import CarouselIcons from "@/components/CarouselIcons.astro";
 import Card from "@/components/Card.astro";
 import ProfessionalExp from "@/components/ProfessionalExp.astro";
@@ -216,7 +216,7 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
         rgba(35, 67, 85, 0.5),
         var(--neutral-100)
       ),
-      url(https://grainy-gradients.vercel.app/noise.svg);
+      url(/noise.svg);
   }
 
   main > :nth-child(even) {
@@ -377,6 +377,7 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
   #about img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
     aspect-ratio: 1 / 1;
     border-radius: 12px;
     box-shadow:
@@ -440,7 +441,7 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
 
   @media (min-width: 1000px) {
     #hero > * {
-      max-width: fit-content;
+      max-width: 100%;
     }
 
     #hero {
