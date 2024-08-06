@@ -7,6 +7,7 @@
 :root {
   font-size: 62.5%;
   scroll-behavior: smooth;
+  color-scheme: dark;
 
   /* Light mode */
   --lm-primary: #33aed7;
@@ -102,6 +103,7 @@
 }
 
 [data-theme="light"] {
+  color-scheme: light;
   --primary: var(--lm-primary);
   --primary-100: var(--lm-primary-100);
   --primary-200: var(--lm-primary-200);
@@ -149,6 +151,7 @@
 }
 
 [data-theme="dark"] {
+  color-scheme: dark;
   --primary: var(--dm-primary);
   --primary-100: var(--dm-primary-100);
   --primary-200: var(--dm-primary-200);
