@@ -24,8 +24,6 @@
     },
     "strictNullChecks": true
   },
-  "include": [
-    "src",
-    "astro.config.ts"
-  ],
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"]
 }
