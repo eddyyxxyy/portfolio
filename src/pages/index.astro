@@ -4,6 +4,7 @@ import { Icon } from "astro-icon/components";
 
 import heroImage from "@assets/hero_dark_decorative_image.svg";
 import edsonPimentaImage from "@assets/Edson_Pimenta_Face_Picture.webp";
+import clubeDaTransicaoImage from "@assets/project_pics/clube-da-transicao.webp";
 import toDoListImage from "@assets/project_pics/todo-list.webp";
 import coffeeDeliveryImage from "@assets/project_pics/coffee-delivery.webp";
 import dailyDietApiImage from "@assets/project_pics/daily-diet-api.webp";
@@ -69,8 +70,8 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
           worked at a leading distance education company, <strong
             >I develop and improve scalable, secure and user-friendly web
             applications built with SEO best practices</strong
-          >. I'm specializing in Node, TypeScript, React, Tailwind, NextJS, AWS,
-          Containers (Docker and Kubernetes) and Design Patterns.
+          >. I'm specializing in C#, .NET, Node, TypeScript, React, Tailwind, NextJS, AWS,
+          Containers (Docker) and Design Patterns.
         </p>
         <p>
           I have knowledge of <strong
@@ -165,6 +166,16 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
       <div class="content">
         <h2>Projects</h2>
         <div id="projectsCards">
+          <Card
+            as="a"
+            href="https://ecovidapangeia.com/clube-da-transicao"
+            target="_blank"
+            rel="nofollow"
+            heading="Clube da Transição - Ecovida Pangeia"
+            image={clubeDaTransicaoImage}
+            content="Landing page to spread sustentability awaerenes via online lectures."
+            badges={["Astro", "TypeScript", "ReactJs", "Shadcn", "SSR", "Mailing"]}
+          />
           <Card
             as="a"
             href="https://one-more-to-do-list.vercel.app/"
