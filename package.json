@@ -1,6 +1,6 @@
 {
   "name": "portfolio",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "My portfolio as a full-stack developer passionate about learning and building solutions that make a difference in people's lives",
   "main": "index.js",
   "homepage": "https://www.edsonpimenta.net/",
@@ -22,7 +22,7 @@
   ],
   "author": {
     "name": "Edson Pimenta",
-    "email": "dev.eddyyxxyy@gmail.com",
+    "email": "dev.edsonpimenta@gmail.com",
     "url": "https://www.edsonpimenta.net/"
   },
   "license": "MIT",
