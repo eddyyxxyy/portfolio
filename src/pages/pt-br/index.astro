@@ -16,11 +16,11 @@ import CarouselIcons from "@/components/CarouselIcons.astro";
 import Card from "@/components/Card.astro";
 import ProfessionalExp from "@/components/ProfessionalExp.astro";
 
-const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <BaseLayout
-  canonicalUrl={cannonicalUrl}
+  canonicalUrl={canonicalUrl}
   pageDescription="Apaixonado pela criação de soluções Web inovadoras e de grande impacto."
   pageTitle="Edson Pimenta (eddyyxxyy) | Desenvolvedor FullStack"
 >
@@ -143,7 +143,7 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
       <div class="content">
         <h2>Experiência Profissional</h2>
         <p>
-          Com <strong>mais de 2 anos de experiência profissional</strong>,
+          Com <strong>mais de 3 anos de experiência profissional</strong>,
           trabalhei em diversos projetos como Freelancer e funcionário
           utilizando <strong>tecnologias e arquiteturas variadas</strong>. A
           <strong
@@ -279,7 +279,7 @@ const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
     overflow: hidden;
   }
 
-  #hero-blurry-backgrond-container {
+  #hero-blurry-background-container {
     position: relative;
     display: flex;
     width: 100%;
