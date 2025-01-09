@@ -16,16 +16,16 @@ import CarouselIcons from "@/components/CarouselIcons.astro";
 import Card from "@/components/Card.astro";
 import ProfessionalExp from "@/components/ProfessionalExp.astro";
 
-const cannonicalUrl = new URL(Astro.url.pathname, Astro.site);
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <BaseLayout
-  canonicalUrl={cannonicalUrl}
+  canonicalUrl={canonicalUrl}
   pageDescription="Driven by a passion for crafting innovative and high-impact web solutions. Thriving in a leading distance education company creating web applications."
   pageTitle="Edson Pimenta (eddyyxxyy) | FullStack Developer"
 >
   <main>
-    <div id="hero-blurry-backgrond-container">
+    <div id="hero-blurry-background-container">
       <div id="hero-blurry-background"></div>
     </div>
     <header id="hero">
