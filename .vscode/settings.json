@@ -1,9 +1,0 @@
-{
-  "conventionalCommits.scopes": [
-    "project",
-    "assets",
-    "config",
-    "components",
-    "ui"
-  ]
-}
