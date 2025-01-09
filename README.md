@@ -51,6 +51,6 @@ Links úteis:
 
 - [Acesse meu Portfólio](https://www.edsonpimenta.net)
 - [Confira todos os meus projetos](https://github.com/eddyyxxyy)
-- [Conecte-se comigo no LinkedIn](https://www.linkedin.com/in/eeddyyxxyy/)
+- [Conecte-se comigo no LinkedIn](https://www.linkedin.com/in/edsonrobertopimenta/)
 - [Assista meus vídeos no Youtube](https://www.youtube.com/@eddyxide)
-- [Me mande um e-mail](mailto:dev.eddyyxxyy@gmail.com?)
+- [Me mande um e-mail](mailto:dev.edsonpimenta@gmail.com?)
