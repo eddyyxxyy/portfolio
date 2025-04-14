@@ -17,7 +17,6 @@ export default [
     },
     rules: {
       "stylistic/comma-dangle": ["error", "always-multiline"],
-      "stylistic/linebreak-style": ["error", "windows"],
       "stylistic/quotes": ["error", "double"],
       "stylistic/semi": ["error"],
       "stylistic/max-len": ["error", { "code": 80, "ignoreStrings": true }],
