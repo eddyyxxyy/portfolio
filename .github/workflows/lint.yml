@@ -35,10 +35,8 @@ jobs:
           npm install @typescript-eslint/eslint-plugin@8.29.1
           npm install @stylistic/eslint-plugin@4.2.0
           npm install typescript@5.8.3
-          npm install ts-node@latest
-          npm install tsconfig-paths@latest
+          npm install jiti@2.4.2
 
       - name: Run ESLint
         run: |
-          npx ts-node --require tsconfig-paths/register eslint.config.ts
           npx eslint . --ext .js,.ts,.astro src
