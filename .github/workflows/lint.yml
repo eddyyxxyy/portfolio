@@ -36,6 +36,7 @@ jobs:
           npm install @stylistic/eslint-plugin@4.2.0
           npm install typescript@5.8.3
           npm install ts-node@latest
+          npm install tsconfig-paths@latest
 
       - name: Run ESLint
         run: |
