@@ -3,6 +3,7 @@
   "version": "0.3.1",
   "description": "My portfolio as a full-stack developer passionate about learning and building solutions that make a difference in people's lives",
   "main": "index.js",
+  "type": "module",
   "homepage": "https://www.edsonpimenta.net/",
   "scripts": {
     "dev": "astro dev",
