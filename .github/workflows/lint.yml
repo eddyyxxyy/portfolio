@@ -35,7 +35,7 @@ jobs:
           npm install @typescript-eslint/eslint-plugin@8.29.1
           npm install @stylistic/eslint-plugin@4.2.0
           npm install typescript@5.8.3
-          npm install ts-node@10.9.1  # Instalação do ts-node
+          npm install ts-node@latest
 
       - name: Run ESLint
         run: |
