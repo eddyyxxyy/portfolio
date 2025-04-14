@@ -1,11 +1,10 @@
 ---
-import {Picture} from "astro:assets";
-import {Icon} from "astro-icon/components";
+import { Picture } from "astro:assets";
+import { Icon } from "astro-icon/components";
 
 import heroImage from "@assets/hero_dark_decorative_image.svg";
 import edsonPimentaImage from "@assets/Edson_Pimenta_Face_Picture.webp";
-import clubeDaTransicaoImage
-  from "@assets/project_pics/clube-da-transicao.webp";
+import clubeDaTransicaoImage from "@assets/project_pics/clube-da-transicao.webp";
 import toDoListImage from "@assets/project_pics/todo-list.webp";
 import coffeeDeliveryImage from "@assets/project_pics/coffee-delivery.webp";
 import dailyDietApiImage from "@assets/project_pics/daily-diet-api.webp";
@@ -32,9 +31,12 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
       <div class="heroText">
         <p>Hello, my name is</p>
         <h1>Edson Pimenta</h1>
-        <p>Fullstack Web Developer<br/>
-          <span>Turning ideas into digital solutions with a focus on performance
-            and scalability</span>
+        <p>
+          Fullstack Web Developer<br />
+          <span
+            >Turning ideas into digital solutions with a focus on performance
+            and scalability</span
+          >
         </p>
       </div>
       <div class="heroImage">
@@ -50,10 +52,10 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
     </header>
     <div id="logo-carousel">
       <div class="slide">
-        <CarouselIcons/>
+        <CarouselIcons />
       </div>
       <div class="slide">
-        <CarouselIcons/>
+        <CarouselIcons />
       </div>
     </div>
     <section id="about">
@@ -71,27 +73,27 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
         <h2>About me</h2>
         <p>
           Passionate about technology and web development, I discovered my
-          vocation as a programmer during
-          my Cybersecurity education. Since then, <strong>I've turned technical
-          challenges into practical solutions</strong>,
-          participating in various projects ranging from the modernization of
-          legacy
-          systems to the creation of
-          scalable and secure web platforms.
+          vocation as a programmer during my Cybersecurity education. Since
+          then, <strong
+            >I've turned technical challenges into practical solutions</strong
+          >, participating in various projects ranging from the modernization of
+          legacy systems to the creation of scalable and secure web platforms.
         </p>
         <p>
           With more than <strong>3 years of experience</strong>, I have worked
           for a leading distance education company, where I developed systems
-          that directly impacted the <strong>performance, security, and
-          accessibility of services</strong> both internal and external.
-          Currently, I am dedicated to building complete end-to-end solutions,
-          combining<strong>C#, .NET, Node.js, React, Angular, cloud technologies
-          like AWS, and containers with Docker</strong>.
+          that directly impacted the <strong
+            >performance, security, and accessibility of services</strong
+          > both internal and external. Currently, I am dedicated to building
+          complete end-to-end solutions, combining<strong
+            >C#, .NET, Node.js, React, Angular, cloud technologies like AWS, and
+            containers with Docker</strong
+          >.
         </p>
         <p>
           I am driven by innovation and continuous learning, always striving to
-          improve my ability to
-          deliver software that makes a difference for businesses and users.
+          improve my ability to deliver software that makes a difference for
+          businesses and users.
         </p>
 
         <ul id="links">
@@ -103,7 +105,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
               aria-label="Edson's Github profile page"
               title="Github"
             >
-              <Icon name="github-logo" size={32}/>
+              <Icon name="github-logo" size={32} />
             </a>
           </li>
           <li>
@@ -114,7 +116,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
               aria-label="Edson's LinkedIn profile page"
               title="LinkedIn"
             >
-              <Icon name="linkedin-logo" size={32}/>
+              <Icon name="linkedin-logo" size={32} />
             </a>
           </li>
           <li>
@@ -125,7 +127,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
               aria-label="Edson's Youtube channel"
               title="Youtube"
             >
-              <Icon name="youtube-logo" size={32}/>
+              <Icon name="youtube-logo" size={32} />
             </a>
           </li>
           <li>
@@ -134,7 +136,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
               aria-label="Edson's E-mail"
               title="E-mail"
             >
-              <Icon name="envelope" size={32}/>
+              <Icon name="envelope" size={32} />
             </a>
           </li>
         </ul>
@@ -146,13 +148,11 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
         <p>
           With <strong>over 3 years of professional experience</strong>, I have
           worked on several projects as a freelancer and employee using a
-          <strong
-          >variety of technologies and architectures</strong
-          >. <strong>Maintaining, adding new features and fixing bugs</strong>
-          in
-          proprietary or third-party systems is part of my routine as a
-          programmer.
-          Here I'll focus on my formal work experience.
+          <strong>variety of technologies and architectures</strong>. <strong
+            >Maintaining, adding new features and fixing bugs</strong
+          >
+          in proprietary or third-party systems is part of my routine as a
+          programmer. Here I'll focus on my formal work experience.
         </p>
         <ProfessionalExp
           job={{
@@ -193,7 +193,14 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
             heading="Clube da Transição - Ecovida Pangeia"
             image={clubeDaTransicaoImage}
             content="Landing page to spread sustentability awaerenes via online lectures."
-            badges={["Astro", "TypeScript", "ReactJs", "Shadcn", "SSR", "Mailing"]}
+            badges={[
+              "Astro",
+              "TypeScript",
+              "ReactJs",
+              "Shadcn",
+              "SSR",
+              "Mailing",
+            ]}
           />
           <Card
             as="a"
@@ -251,20 +258,19 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 
 <style>
   main > :nth-child(odd):not(#logo-carousel) {
-    background: radial-gradient(
-      circle at bottom,
-      rgba(35, 67, 85, 0.5),
-      var(--neutral-100)
-    ),
-    url(/noise.svg);
+    background:
+      radial-gradient(
+        circle at bottom,
+        rgba(35, 67, 85, 0.5),
+        var(--neutral-100)
+      ),
+      url(/noise.svg);
   }
 
   main > :nth-child(even) {
-    background-image: linear-gradient(
-      rgba(40, 163, 204, 0.05) 0.1em,
-      transparent 0.1em
-    ),
-    linear-gradient(90deg, rgba(40, 163, 204, 0.05) 0.1em, transparent 0.1em);
+    background-image:
+      linear-gradient(rgba(40, 163, 204, 0.05) 0.1em, transparent 0.1em),
+      linear-gradient(90deg, rgba(40, 163, 204, 0.05) 0.1em, transparent 0.1em);
     background-size: 1.2rem 1.2rem;
   }
 
@@ -425,11 +431,12 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
     object-fit: cover;
     aspect-ratio: 1 / 1;
     border-radius: 12px;
-    box-shadow: var(--neutral-600) -3px 3px,
-    var(--neutral-500) -6px 6px,
-    var(--neutral-400) -9px 9px,
-    var(--neutral-300) -12px 12px,
-    var(--neutral-200) -15px 15px;
+    box-shadow:
+      var(--neutral-600) -3px 3px,
+      var(--neutral-500) -6px 6px,
+      var(--neutral-400) -9px 9px,
+      var(--neutral-300) -12px 12px,
+      var(--neutral-200) -15px 15px;
   }
 
   .content {
