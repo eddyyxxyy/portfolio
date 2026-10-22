@@ -9,6 +9,8 @@ import toDoListImage from "@assets/project_pics/todo-list.webp";
 import coffeeDeliveryImage from "@assets/project_pics/coffee-delivery.webp";
 import dailyDietApiImage from "@assets/project_pics/daily-diet-api.webp";
 import toTempImage from "@assets/project_pics/to-temp.webp";
+import schematicLdImage from "@assets/project_pics/schematic-ld.svg";
+import granQuestoesImage from "@assets/project_pics/gran-questoes-home.png";
 
 import BaseLayout from "@layouts/BaseLayout.astro";
 import CarouselIcons from "@/components/CarouselIcons.astro";
@@ -20,8 +22,8 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 
 <BaseLayout
   canonicalUrl={canonicalUrl}
-  pageDescription="Driven by a passion for crafting innovative and high-impact web solutions. Thriving in a leading distance education company creating web applications."
-  pageTitle="Edson Pimenta (eddyyxxyy) | FullStack Developer"
+  pageDescription="Software engineer specializing in growth engineering and AI systems. Scaled organic platform revenue 5x with high-scale web architecture, PHP, TypeScript, Node.js, and LLM orchestration."
+  pageTitle="Edson Pimenta | Growth Engineering & AI Systems"
 >
   <main>
     <div id="hero-blurry-background-container">
@@ -31,11 +33,13 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
       <div class="heroText">
         <p>Hello, my name is</p>
         <h1>Edson Pimenta</h1>
+        <p>Growth and AI systems that scale revenue.</p>
         <p>
-          Fullstack Web Developer<br />
           <span
-            >Turning ideas into digital solutions with a focus on performance
-            and scalability</span
+            >I design high-scale web architecture, product-led growth, and LLM
+            orchestration.<br />
+            PHP, TypeScript, and Node.js, measured in revenue, indexation, and
+            performance.</span
           >
         </p>
       </div>
@@ -72,36 +76,43 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
       <div class="content">
         <h2>About me</h2>
         <p>
-          Passionate about technology and web development, I discovered my
-          vocation as a programmer during my Cybersecurity education. Since
-          then, <strong
-            >I've turned technical challenges into practical solutions</strong
-          >, participating in various projects ranging from the modernization of
-          legacy systems to the creation of scalable and secure web platforms.
+          I treat organic growth as a systems problem: routing, structured
+          data, performance, and UX decide whether a platform gets found and
+          whether that traffic becomes revenue. At Gran Cursos, that work
+          scaled organic platform revenue from under R$100k to over R$500k.
         </p>
         <p>
-          With more than <strong>3 years of experience</strong>, I have worked
-          for a leading distance education company, where I developed systems
-          that directly impacted the <strong
-            >performance, security, and accessibility of services</strong
-          > both internal and external. Currently, I am dedicated to building
-          complete end-to-end solutions, combining<strong
-            >C#, .NET, Node.js, React, Angular, cloud technologies like AWS, and
-            containers with Docker</strong
-          >.
+          The same constraint now applies to AI. Search engines and generative
+          engines both need a clean, trustworthy content graph. I lead semantic
+          deduplication of questions for Generative Engine Optimization, and I
+          design agent and LLM orchestration with MCP and RAG on PHP with
+          Symfony and Slim, TypeScript, and Node.js, on web architecture built
+          for high scale. On the frontend, I work with React, Vue, and Nuxt,
+          while favoring native web capabilities whenever they are the simplest
+          reliable choice. I approach each initiative pragmatically, matching
+          architecture to the product, maintenance, and market constraints.
         </p>
-        <p>
-          I am driven by innovation and continuous learning, always striving to
-          improve my ability to deliver software that makes a difference for
-          businesses and users.
-        </p>
+        <h3>Tech stack</h3>
+        <ul id="stack">
+          <li>PHP</li>
+          <li>Symfony</li>
+          <li>Slim</li>
+          <li>TypeScript</li>
+          <li>Node.js</li>
+          <li>Python</li>
+          <li>React</li>
+          <li>Vue</li>
+          <li>Nuxt</li>
+          <li>AI systems: agents, MCP, RAG</li>
+          <li>Distributed systems</li>
+        </ul>
 
         <ul id="links">
           <li>
             <a
               href="https://github.com/eddyyxxyy"
               target="_blank"
-              rel="noreferer"
+              rel="noopener noreferrer"
               aria-label="Edson's Github profile page"
               title="Github"
             >
@@ -112,7 +123,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
             <a
               href="https://www.linkedin.com/in/edsonrobertopimenta/"
               target="_blank"
-              rel="noreferer"
+              rel="noopener noreferrer"
               aria-label="Edson's LinkedIn profile page"
               title="LinkedIn"
             >
@@ -123,7 +134,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
             <a
               href="https://www.youtube.com/@eddyxide"
               target="_blank"
-              rel="noreferer"
+              rel="noopener noreferrer"
               aria-label="Edson's Youtube channel"
               title="Youtube"
             >
@@ -142,24 +153,77 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
         </ul>
       </div>
     </section>
+    <section id="achievements">
+      <div class="content">
+        <h2>Featured achievements</h2>
+        <ul>
+          <li>
+            Scaled organic platform revenue at Gran Cursos from under R$100k to
+            over R$500k (5x) by aligning product-led growth, performance, and
+            UX.
+          </li>
+          <li>
+            Shipped dynamic routing that kept 50,000+ URLs from being deindexed
+            by Google.
+          </li>
+          <li>
+            Built a JSON-LD library from scratch, tuned for Node's V8 engine and
+            aligned with Google's structured-data requirements.
+          </li>
+          <li>
+            Leading semantic deduplication of questions, preparing the catalog
+            for Generative Engine Optimization (GEO).
+          </li>
+          <li>
+            Audited the organic products and resolved 70+ security
+            vulnerabilities.
+          </li>
+        </ul>
+      </div>
+    </section>
     <section id="career">
       <div class="content">
         <h2>Experience</h2>
         <p>
-          With <strong>over 3 years of professional experience</strong>, I have
+          With <strong>over 4 years of professional experience</strong>, I have
           worked on several projects as a freelancer and employee using a
-          <strong>variety of technologies and architectures</strong>. <strong
-            >Maintaining, adding new features and fixing bugs</strong
-          >
-          in proprietary or third-party systems is part of my routine as a
-          programmer. Here I'll focus on my formal work experience.
+          <strong>variety of technologies and architectures</strong>.
+          Maintaining, adding features, and fixing bugs in proprietary and
+          third-party
+          systems is part of my routine. Here I focus on my formal work
+          experience.
         </p>
+        <ProfessionalExp
+          job={{
+            title: "Software Engineer",
+            where: "Gran",
+            description:
+              "Growth engineer on the organic platform at Gran, one of Latin America's largest edtech companies. Scaled organic revenue from under R$100k to over R$500k through product-led growth, performance, and UX. Built dynamic routing that kept 50,000+ URLs indexed, a JSON-LD library tuned for Node's V8, and the semantic deduplication that prepares the catalog for Generative Engine Optimization. The day-to-day stack is PHP, Symfony, Slim, TypeScript, Node.js, React, Vue, and Nuxt, deployed with Docker on AWS.",
+            date: {
+              from: "Aug 2025",
+              to: "Present",
+            },
+            badges: [
+              "PHP",
+              "Symfony",
+              "Slim",
+              "TypeScript",
+              "Node.js",
+              "React",
+              "Vue",
+              "Nuxt",
+              "Docker",
+              "AWS",
+            ],
+            link: "https://www.grancursosonline.com.br/",
+          }}
+        />
         <ProfessionalExp
           job={{
             title: "FullStack Web Developer",
             where: "Metropolitan Educação LTDA",
             description:
-              "Working for a leading distance learning company, owner of FAMEF, FAMEESP and other educational institutions, I developed and improved web applications with PHP, CakePHP, NodeJS, TypeScript, NextJS, GraphQL, AWS and other technologies. My work has ranged from the development and maintenance of Back-End, DevOps and Front-End internal systems to analyzing and using the results of SEO research results to improve the ranking of our products open to clients/students.",
+              "At a leading distance-learning company, owner of FAMEF, FAMEESP, and other institutions, I developed and improved web applications with PHP, CakePHP, Node.js, TypeScript, Next.js, GraphQL, and AWS. The work covered backend, frontend, and DevOps for internal systems, plus SEO analysis that improved the ranking of products open to students.",
             date: {
               from: "2023",
               to: "Apr 2024",
@@ -186,13 +250,39 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
         <h2>Projects</h2>
         <div id="projectsCards">
           <Card
+            as="article"
+            heading="SchematicLD"
+            image={schematicLdImage}
+            imageAlt="SchematicLD pipeline from Schema.org entities to XSS-safe JSON-LD through V8-optimized objects."
+            content="Private package owned by Gran that I designed and built: a zero-dependency JSON-LD library with monomorphic factories optimized for V8, XSS-safe serialization, and Google-compliant schemas. It powers structured data across Gran Questões without exposing proprietary source code."
+            badges={[
+              "JavaScript",
+              "JSON-LD",
+              "Schema.org",
+              "V8",
+              "SEO/AEO",
+            ]}
+          />
+          <Card
+            as="a"
+            href="https://questoes.grancursosonline.com.br/"
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+            heading="Gran Questões"
+            image={granQuestoesImage}
+            imageAlt="Gran Questões homepage offering millions of free practice questions."
+            content="High-scale study platform where I integrate SchematicLD into Nuxt SSR across the home, question, exam, contest, subject, and simulation pages. It builds consistent knowledge graphs for search and generative engines."
+            badges={["Vue", "Nuxt", "SSR", "JSON-LD", "GEO"]}
+          />
+          <Card
             as="a"
             href="https://ecovidapangeia.com/clube-da-transicao"
             target="_blank"
-            rel="nofollow"
+            rel="nofollow noopener noreferrer"
             heading="Clube da Transição - Ecovida Pangeia"
             image={clubeDaTransicaoImage}
-            content="Landing page to spread sustentability awaerenes via online lectures."
+            imageAlt="Clube da Transição sustainability learning platform."
+            content="Landing page that shares sustainability concepts through online lectures."
             badges={[
               "Astro",
               "TypeScript",
@@ -206,9 +296,10 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
             as="a"
             href="https://one-more-to-do-list.vercel.app/"
             target="_blank"
-            rel="nofollow"
+            rel="nofollow noopener noreferrer"
             heading="One More ToDo List"
             image={toDoListImage}
+            imageAlt="One More ToDo List task management interface."
             content="A simple web application to manage your daily tasks with a modern and pleasing UI."
             badges={["ReactJs", "Vite", "TypeScript", "CSS Modules"]}
           />
@@ -216,20 +307,22 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
             as="a"
             href="https://coffee-delivery-eddyyxxyy.vercel.app/"
             target="_blank"
-            rel="nofollow"
+            rel="nofollow noopener noreferrer"
             heading="Coffee Delivery"
             image={coffeeDeliveryImage}
-            content="Web application for managing a shopping cart for a fictitious coffee shop, having an English and Portuguese UI."
+            imageAlt="Coffee Delivery shopping cart interface."
+            content="Web application that simulates a coffee shop storefront, with English and Portuguese interfaces."
             badges={["ReactJs", "Vite", "TypeScript", "TailwindCSS", "i18next"]}
           />
           <Card
             as="a"
             href="https://github.com/eddyyxxyy/daily-diet-api"
             target="_blank"
-            rel="nofollow"
+            rel="nofollow noopener noreferrer"
             heading="Daily Diet API"
             image={dailyDietApiImage}
-            content="Robust API for handling notes and reminders of our free meals and diet for a well-balanced routine."
+            imageAlt="Daily Diet API project presentation."
+            content="API for notes and reminders about meals and diet, built to support a balanced routine."
             badges={[
               "NodeJS",
               "TypeScript",
@@ -244,10 +337,11 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
             as="a"
             href="https://pypi.org/project/totemp/"
             target="_blank"
-            rel="nofollow"
+            rel="nofollow noopener noreferrer"
             heading="ToTemp"
             image={toTempImage}
-            content="ToTemp is an API for temperature representation, providing dynamic Classes able to represent temperature scales and perform conversions, arithmetic operations and comparisons between them and numeric values."
+            imageAlt="ToTemp Python temperature conversion package."
+            content="Python package for representing temperature scales and converting, calculating, and comparing them with other temperatures and numbers."
             badges={["Python", "MetaProgramming", "OOP"]}
           />
         </div>
@@ -316,6 +410,10 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 
   .heroText :not(:first-child, h1) {
     font-size: clamp(2.2rem, 1.7294rem + 2.3529vw, 3.2rem);
+  }
+
+  .heroText > p:nth-of-type(2) {
+    text-wrap: balance;
   }
 
   .heroText p span {
@@ -411,6 +509,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
   }
 
   #about,
+  #achievements,
   #career,
   #projects {
     display: flex;
@@ -418,6 +517,47 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
     align-items: center;
     justify-content: center;
     gap: 4rem;
+  }
+
+  .content h3 {
+    margin-top: 3.2rem;
+    color: var(--neutral-700);
+    font-family: "Exo 2", sans-serif;
+    font-size: 1.6rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  #stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 1.6rem;
+    list-style: none;
+  }
+
+  #stack li {
+    padding: 0.6rem 1.2rem;
+    border: 1px solid var(--neutral-700);
+    border-radius: 8px;
+    color: var(--neutral-900);
+    font-size: 1.6rem;
+  }
+
+  #achievements ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    margin-top: 2.4rem;
+    list-style: none;
+  }
+
+  #achievements li {
+    padding-left: 1.6rem;
+    border-left: 3px solid var(--primary);
+    color: var(--neutral-800);
+    font-size: 2rem;
   }
 
   #about .image {
@@ -445,7 +585,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
     margin-bottom: 2rem;
   }
 
-  .content :is(p, strong, div, a) {
+  .content :is(p, strong) {
     font-size: 2rem;
     margin-top: 2rem;
   }
@@ -573,14 +713,10 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
       margin-bottom: 1.2rem;
     }
 
-    .content :is(p, strong) {
+    .content :is(p, strong),
+    #achievements li {
       font-size: 2.2rem;
     }
   }
 
-  @media (min-width: 1440px) {
-    #projectsCards {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
 </style>

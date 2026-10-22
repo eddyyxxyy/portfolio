@@ -10,6 +10,8 @@ import toDoListImage from "@assets/project_pics/todo-list.webp";
 import coffeeDeliveryImage from "@assets/project_pics/coffee-delivery.webp";
 import dailyDietApiImage from "@assets/project_pics/daily-diet-api.webp";
 import toTempImage from "@assets/project_pics/to-temp.webp";
+import schematicLdImage from "@assets/project_pics/schematic-ld.svg";
+import granQuestoesImage from "@assets/project_pics/gran-questoes-home.png";
 
 import BaseLayout from "@layouts/BaseLayout.astro";
 import CarouselIcons from "@/components/CarouselIcons.astro";
@@ -21,8 +23,8 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 
 <BaseLayout
   canonicalUrl={canonicalUrl}
-  pageDescription="Apaixonado pela criação de soluções Web inovadoras e de grande impacto."
-  pageTitle="Edson Pimenta (eddyyxxyy) | Desenvolvedor FullStack"
+  pageDescription="Engenheiro de software especialista em growth engineering e sistemas de IA. Escalonou a receita da plataforma orgânica em 5x com arquitetura web de alta escala, PHP, TypeScript, Node.js e orquestração de LLMs."
+  pageTitle="Edson Pimenta | Growth Engineering e Sistemas de IA"
 >
   <main>
     <div id="hero-blurry-background-container">
@@ -32,9 +34,12 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
       <div class="heroText">
         <p>Olá, me chamo</p>
         <h1>Edson Pimenta</h1>
-        <p>Desenvolvedor Web Fullstack<br/>
-          <span>Transformando ideias em soluções digitais com
-            foco em desempenho e escalabilidade</span>
+        <p>Sistemas de growth e IA que escalam receita.</p>
+        <p>
+          <span>Desenho arquitetura web de alta escala, product-led growth e
+            orquestração de LLMs.<br/>
+            PHP, TypeScript e Node.js, medidos em receita, indexação e
+            performance.</span>
         </p>
       </div>
       <div class="heroImage">
@@ -70,35 +75,44 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
       <div class="content">
         <h2>Sobre mim</h2>
         <p>
-          Apaixonado por tecnologia e desenvolvimento web, descobri minha
-          vocação como programador durante
-          minha formação em Cibersegurança. Desde então, <strong>transformei
-          desafios
-          técnicos em soluções práticas</strong>,
-          participando de projetos variados que vão da modernização de sistemas
-          legados à criação de
-          plataformas web escaláveis e seguras.
+          Trato growth orgânico como problema de sistema: roteamento, dados
+          estruturados, performance e UX decidem se a plataforma é encontrada e
+          se esse tráfego vira receita. No Gran Cursos, esse trabalho escalou o
+          faturamento da plataforma orgânica de menos de R$ 100 mil para mais
+          de R$ 500 mil.
         </p>
         <p>
-          Com mais de <strong>3 anos de experiência</strong>, já trabalhei em
-          uma empresa líder em ensino à distância, onde desenvolvi sistemas que
-          impactaram diretamente a <strong>performance, segurança e
-          acessibilidade de serviços</strong> internos e externos.Atualmente,
-          me dedico a construir soluções completas de ponta a ponta, combinando
-          <strong>C#, .NET, Node.js, React, Angular, tecnologias de nuvem como
-            AWS e containers com Docker</strong>.
+          A mesma restrição agora vale para IA. Buscadores e motores generativos
+          dependem de um grafo de conteúdo limpo e confiável. Lidero a
+          deduplicação semântica de questões para GEO (Generative Engine
+          Optimization) e desenho orquestração de agentes e LLMs com MCP e RAG,
+          em PHP com Symfony e Slim, TypeScript e Node.js, sobre arquitetura web
+          de alta escala. No frontend, trabalho com React, Vue e Nuxt,
+          priorizando recursos nativos da web quando são a escolha mais simples
+          e confiável.
+          Ataco cada iniciativa com pragmatismo, alinhando a arquitetura às
+          restrições de produto, manutenção e mercado.
         </p>
-        <p>
-          Sou movido por inovação e aprendizado contínuo, sempre buscando
-          aprimorar minha habilidade de
-          entregar software que faz diferença para empresas e usuários.
-        </p>
+        <h3>Stack</h3>
+        <ul id="stack">
+          <li>PHP</li>
+          <li>Symfony</li>
+          <li>Slim</li>
+          <li>TypeScript</li>
+          <li>Node.js</li>
+          <li>Python</li>
+          <li>React</li>
+          <li>Vue</li>
+          <li>Nuxt</li>
+          <li>Sistemas de IA: agentes, MCP, RAG</li>
+          <li>Sistemas distribuídos</li>
+        </ul>
         <ul id="links">
           <li>
             <a
               href="https://github.com/eddyyxxyy"
               target="_blank"
-              rel="noreferer"
+              rel="noopener noreferrer"
               aria-label="Perfil do Github de Edson Pimenta"
               title="Github"
             >
@@ -109,7 +123,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
             <a
               href="https://www.linkedin.com/in/edsonrobertopimenta/"
               target="_blank"
-              rel="noreferer"
+              rel="noopener noreferrer"
               aria-label="Perfil do LinkedIn de Edson Pimenta"
               title="LinkedIn"
             >
@@ -120,7 +134,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
             <a
               href="https://www.youtube.com/@eddyxide"
               target="_blank"
-              rel="noreferer"
+              rel="noopener noreferrer"
               aria-label="Canal no Youtube de Edson Pimenta"
               title="Youtube"
             >
@@ -139,11 +153,39 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
         </ul>
       </div>
     </section>
+    <section id="achievements">
+      <div class="content">
+        <h2>Conquistas</h2>
+        <ul>
+          <li>
+            Escalei o faturamento da plataforma orgânica do Gran Cursos de
+            menos de R$ 100 mil para mais de R$ 500 mil (5x), alinhando PLG,
+            performance e UX.
+          </li>
+          <li>
+            Entreguei roteamento dinâmico que impediu a desindexação de mais de
+            50 mil URLs pelo Google.
+          </li>
+          <li>
+            Criei do zero uma biblioteca de JSON-LD ajustada ao motor V8 do
+            Node e alinhada às exigências de dados estruturados do Google.
+          </li>
+          <li>
+            Lidero a deduplicação semântica de questões, preparando o catálogo
+            para GEO (Generative Engine Optimization).
+          </li>
+          <li>
+            Conduzi a auditoria de segurança dos produtos orgânicos e resolvi
+            mais de 70 vulnerabilidades.
+          </li>
+        </ul>
+      </div>
+    </section>
     <section id="career">
       <div class="content">
         <h2>Experiência Profissional</h2>
         <p>
-          Com <strong>mais de 3 anos de experiência profissional</strong>,
+          Com <strong>mais de 4 anos de experiência profissional</strong>,
           trabalhei em diversos projetos como Freelancer e funcionário
           utilizando <strong>tecnologias e arquiteturas variadas</strong>. A
           <strong
@@ -153,6 +195,31 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
           programador. Aqui irei focar nas minhas experiências formais de
           trabalho.
         </p>
+        <ProfessionalExp
+          job={{
+            title: "Engenheiro de Software",
+            where: "Gran",
+            description:
+              "Engenheiro de growth na plataforma orgânica do Gran, uma das maiores edtechs da América Latina. Escalei a receita orgânica de menos de R$ 100 mil para mais de R$ 500 mil com PLG, performance e UX. Construí o roteamento dinâmico que manteve mais de 50 mil URLs indexadas, uma biblioteca de JSON-LD ajustada ao V8 do Node e a deduplicação semântica que prepara o catálogo para Generative Engine Optimization. No dia a dia, a stack é PHP, Symfony, Slim, TypeScript, Node.js, React, Vue e Nuxt, com deploy em Docker na AWS.",
+            date: {
+              from: "Ago 2025",
+              to: "Atual",
+            },
+            badges: [
+              "PHP",
+              "Symfony",
+              "Slim",
+              "TypeScript",
+              "Node.js",
+              "React",
+              "Vue",
+              "Nuxt",
+              "Docker",
+              "AWS",
+            ],
+            link: "https://www.grancursosonline.com.br/",
+          }}
+        />
         <ProfessionalExp
           job={{
             title: "Desenvolvedor Web FullStack",
@@ -182,15 +249,41 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
     </section>
     <section id="projects">
       <div class="content">
-        <h2>Projects</h2>
+        <h2>Projetos</h2>
         <div id="projectsCards">
+          <Card
+            as="article"
+            heading="SchematicLD"
+            image={schematicLdImage}
+            imageAlt="Pipeline do SchematicLD, de entidades Schema.org a JSON-LD seguro contra XSS por meio de objetos otimizados para V8."
+            content="Pacote privado, propriedade do Gran, que projetei e desenvolvi: uma biblioteca JSON-LD sem dependências, com factories monomórficas otimizadas para V8, serialização segura contra XSS e schemas alinhados ao Google. Sustenta os dados estruturados do Gran Questões sem expor código proprietário."
+            badges={[
+              "JavaScript",
+              "JSON-LD",
+              "Schema.org",
+              "V8",
+              "SEO/AEO",
+            ]}
+          />
+          <Card
+            as="a"
+            href="https://questoes.grancursosonline.com.br/"
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+            heading="Gran Questões"
+            image={granQuestoesImage}
+            imageAlt="Home do Gran Questões, que oferece milhões de questões gratuitas para concursos."
+            content="Plataforma de estudos em alta escala onde integro o SchematicLD ao SSR do Nuxt nas páginas de home, questões, provas, concursos, disciplinas e simulados, formando grafos consistentes para buscadores e motores generativos."
+            badges={["Vue", "Nuxt", "SSR", "JSON-LD", "GEO"]}
+          />
           <Card
             as="a"
             href="https://ecovidapangeia.com/clube-da-transicao"
             target="_blank"
-            rel="nofollow"
+            rel="nofollow noopener noreferrer"
             heading="Clube da Transição - Ecovida Pangeia"
             image={clubeDaTransicaoImage}
+            imageAlt="Plataforma de aprendizagem sobre sustentabilidade Clube da Transição."
             content="Landing page para difundir conceitos de sustentabilide por meio de aulas online."
             badges={["Astro", "TypeScript", "ReactJs", "Shadcn", "SSR", "Mailing"]}
           />
@@ -198,9 +291,10 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
             as="a"
             href="https://one-more-to-do-list.vercel.app/"
             target="_blank"
-            rel="nofollow"
+            rel="nofollow noopener noreferrer"
             heading="One More ToDo List"
             image={toDoListImage}
+            imageAlt="Interface de gerenciamento de tarefas One More ToDo List."
             content="Uma aplicação web simples para cuidar de suas tarefas diárias com uma interface moderna e agradável."
             badges={["ReactJs", "Vite", "TypeScript", "CSS Modules"]}
           />
@@ -208,9 +302,10 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
             as="a"
             href="https://coffee-delivery-eddyyxxyy.vercel.app/"
             target="_blank"
-            rel="nofollow"
+            rel="nofollow noopener noreferrer"
             heading="Coffee Delivery"
             image={coffeeDeliveryImage}
+            imageAlt="Interface do carrinho de compras Coffee Delivery."
             content="Aplicação web para emular uma loja virtual de uma cafeteria fictícia, com interface responsiva em inglês e português."
             badges={["ReactJs", "Vite", "TypeScript", "TailwindCSS", "i18next"]}
           />
@@ -218,9 +313,10 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
             as="a"
             href="https://github.com/eddyyxxyy/daily-diet-api"
             target="_blank"
-            rel="nofollow"
+            rel="nofollow noopener noreferrer"
             heading="Daily Diet API"
             image={dailyDietApiImage}
+            imageAlt="Apresentação do projeto Daily Diet API."
             content="API robusta para criar notas e lembretes das nossas refeições (livres ou não) da nossa dieta para uma rotina equilibrada."
             badges={[
               "NodeJS",
@@ -236,9 +332,10 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
             as="a"
             href="https://pypi.org/project/totemp/"
             target="_blank"
-            rel="nofollow"
+            rel="nofollow noopener noreferrer"
             heading="ToTemp"
             image={toTempImage}
+            imageAlt="Pacote Python ToTemp para conversão de temperaturas."
             content="ToTemp é uma API para representação de temperaturas, fornecendo classes dinâmicas capazes de representar escalas de temperatura e efetuar conversões, operações aritméticas e comparações entre estas e valores numéricos."
             badges={["Python", "MetaProgramming", "POO"]}
           />
@@ -309,6 +406,10 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 
   .heroText :not(:first-child, h1) {
     font-size: clamp(2.2rem, 1.7294rem + 2.3529vw, 3.2rem);
+  }
+
+  .heroText > p:nth-of-type(2) {
+    text-wrap: balance;
   }
 
   .heroText p span {
@@ -404,6 +505,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
   }
 
   #about,
+  #achievements,
   #career,
   #projects {
     display: flex;
@@ -411,6 +513,47 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
     align-items: center;
     justify-content: center;
     gap: 4rem;
+  }
+
+  .content h3 {
+    margin-top: 3.2rem;
+    color: var(--neutral-700);
+    font-family: "Exo 2", sans-serif;
+    font-size: 1.6rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  #stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 1.6rem;
+    list-style: none;
+  }
+
+  #stack li {
+    padding: 0.6rem 1.2rem;
+    border: 1px solid var(--neutral-700);
+    border-radius: 8px;
+    color: var(--neutral-900);
+    font-size: 1.6rem;
+  }
+
+  #achievements ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    margin-top: 2.4rem;
+    list-style: none;
+  }
+
+  #achievements li {
+    padding-left: 1.6rem;
+    border-left: 3px solid var(--primary);
+    color: var(--neutral-800);
+    font-size: 2rem;
   }
 
   #about .image {
@@ -437,7 +580,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
     margin-bottom: 2rem;
   }
 
-  .content :is(p, strong, div, a) {
+  .content :is(p, strong) {
     font-size: 2rem;
     margin-top: 2rem;
   }
@@ -565,14 +708,10 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
       margin-bottom: 1.2rem;
     }
 
-    .content :is(p, strong) {
+    .content :is(p, strong),
+    #achievements li {
       font-size: 2.2rem;
     }
   }
 
-  @media (min-width: 1440px) {
-    #projectsCards {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
 </style>
