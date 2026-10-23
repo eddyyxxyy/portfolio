@@ -117,7 +117,6 @@ const isSvg = image?.format === "svg";
     padding: 3px;
     border-radius: inherit;
     z-index: -1;
-    animation: 3s spin linear infinite;
     opacity: 0;
     transition: opacity 0.25s ease-in-out;
   }
@@ -127,8 +126,10 @@ const isSvg = image?.format === "svg";
   }
 
   a.card:hover::after,
+  a.card:hover::before,
   a.card:focus-visible::after,
   a.card:focus-visible::before {
+    animation: 3s spin linear infinite;
     opacity: 0.7;
   }
 
@@ -185,7 +186,11 @@ const isSvg = image?.format === "svg";
 
   @media (prefers-reduced-motion: reduce) {
     .card::after,
-    .card::before {
+    .card::before,
+    a.card:hover::after,
+    a.card:hover::before,
+    a.card:focus-visible::after,
+    a.card:focus-visible::before {
       animation: none;
     }
   }

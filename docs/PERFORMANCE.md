@@ -9,6 +9,7 @@
 - no generated page HTML above 150 KiB.
 
 `npm run lighthouse` checks English and Portuguese on mobile and desktop.
+The first browser pass is discarded; it only decodes the local fonts.
 Accessibility, Best Practices, and SEO must score 100. Performance must be at
 least 95. Lab targets are LCP ≤ 2.5 s, CLS ≤ 0.1, TBT ≤ 200 ms, FCP ≤ 1.8 s,
 and Speed Index ≤ 3.4 s.

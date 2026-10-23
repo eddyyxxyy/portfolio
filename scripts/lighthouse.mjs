@@ -72,20 +72,26 @@ try {
     userDataDir: false,
   });
 
+  const runLighthouse = (route, profile) =>
+    lighthouse(`${host}${route}`, {
+      logLevel: "error",
+      onlyCategories: [
+        "accessibility",
+        "best-practices",
+        "performance",
+        "seo",
+      ],
+      output: "json",
+      port: chrome.port,
+      preset: profile === "desktop" ? "desktop" : undefined,
+    });
+
+  // The first throttled pass on a fresh browser pays for font decode.
+  await runLighthouse(routes[0], profiles[0]);
+
   for (const route of routes) {
     for (const profile of profiles) {
-      const result = await lighthouse(`${host}${route}`, {
-        logLevel: "error",
-        onlyCategories: [
-          "accessibility",
-          "best-practices",
-          "performance",
-          "seo",
-        ],
-        output: "json",
-        port: chrome.port,
-        preset: profile === "desktop" ? "desktop" : undefined,
-      });
+      const result = await runLighthouse(route, profile);
 
       if (!result) {
         failures.push(`${route} (${profile}): Lighthouse returned no result`);
