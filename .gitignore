@@ -126,6 +126,10 @@ dist
 .vscode
 .idea
 
+# Local notes and editor state
+.cursor/
+local_docs/
+
 # yarn v2
 .yarn/cache
 .yarn/unplugged

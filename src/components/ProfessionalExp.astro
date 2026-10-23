@@ -1,6 +1,6 @@
 ---
 import Badges from "./Badges.astro";
-import { Icon } from "astro-icon/components";
+import InlineIcon from "./InlineIcon.astro";
 
 type Date = {
   from: string;
@@ -23,14 +23,14 @@ type Props = {
 const { job } = Astro.props;
 ---
 
-<div id="professionalExp">
-  <a class="item" href={job.link} target="_blank" rel="nofollow">
+<div class="professionalExp">
+  <a class="item" href={job.link} target="_blank" rel="nofollow noopener noreferrer">
     <div class="itemContent">
       <span class="date">{job.date.from} - {job.date.to}</span>
       <div>
         <h3 class="itemTitle">
           {job.title} · {job.where}
-          <Icon name="arrow_up_right" size={14} />
+          <InlineIcon name="arrow_up_right" size={14} />
         </h3>
         <div class="itemDescription">
           <p>
@@ -73,14 +73,16 @@ const { job } = Astro.props;
     box-shadow: rgba(99, 99, 99, 0.5) 0px 2px 8px 0px;
   }
 
-  .item:hover,
-  .item:focus {
-    filter: brightness(1.1);
-    box-shadow: rgba(255, 255, 255, 0.15) 0px 5px 15px 0px;
+  .item:hover {
+    filter: brightness(1.06);
+  }
+
+  .item:focus-visible {
+    border-color: var(--focus);
   }
 
   span {
-    font-family: "Exo 2", sans-serif;
+    font-family: var(--font-exo-2);
     font-size: 1.2rem;
     text-transform: uppercase;
     line-height: 2.2rem;
@@ -90,15 +92,6 @@ const { job } = Astro.props;
   .itemTitle {
     font-size: 2.2rem;
     color: var(--neutral-900);
-  }
-
-  .itemTitle a {
-    font-size: 2.2rem;
-  }
-
-  .itemTitle a:hover,
-  .itemTitle a:focus {
-    border-bottom: 1px solid var(--neutral-100);
   }
 
   .itemDescription p {

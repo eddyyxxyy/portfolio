@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">SchematicLD architecture</title>
+  <desc id="desc">A structured data graph flowing through a high-performance V8 pipeline.</desc>
+  <rect width="1200" height="630" rx="32" fill="#07151d"/>
+  <g stroke="#143847" stroke-width="2" opacity=".8">
+    <path d="M0 90h1200M0 180h1200M0 270h1200M0 360h1200M0 450h1200M0 540h1200"/>
+    <path d="M100 0v630M200 0v630M300 0v630M400 0v630M500 0v630M600 0v630M700 0v630M800 0v630M900 0v630M1000 0v630M1100 0v630"/>
+  </g>
+  <text x="80" y="105" fill="#3cb8df" font-family="monospace" font-size="30" font-weight="700">SCHEMATICLD</text>
+  <text x="80" y="150" fill="#b8cad3" font-family="sans-serif" font-size="24">Structured data engineered for high-traffic SSR</text>
+  <g fill="none" stroke="#3cb8df" stroke-width="6" stroke-linecap="round">
+    <path d="M230 315h180M530 315h140M790 315h180"/>
+  </g>
+  <g fill="#0d2632" stroke="#3cb8df" stroke-width="4">
+    <rect x="80" y="245" width="150" height="140" rx="22"/>
+    <rect x="410" y="245" width="120" height="140" rx="22"/>
+    <rect x="670" y="245" width="120" height="140" rx="22"/>
+    <rect x="970" y="245" width="150" height="140" rx="22"/>
+  </g>
+  <g fill="#e7f5fa" font-family="monospace" text-anchor="middle">
+    <text x="155" y="305" font-size="25">{ "@type" }</text>
+    <text x="155" y="342" font-size="19">Schema.org</text>
+    <text x="470" y="305" font-size="25">POJO</text>
+    <text x="470" y="342" font-size="19">stable shape</text>
+    <text x="730" y="305" font-size="25">V8</text>
+    <text x="730" y="342" font-size="19">fast path</text>
+    <text x="1045" y="305" font-size="25">&lt;script&gt;</text>
+    <text x="1045" y="342" font-size="19">XSS-safe</text>
+  </g>
+  <g fill="#8facb9" font-family="sans-serif" font-size="20">
+    <text x="80" y="500">ZERO DEPENDENCIES</text>
+    <text x="430" y="500">FRAMEWORK AGNOSTIC</text>
+    <text x="820" y="500">NODE + BROWSER</text>
+  </g>
+</svg>

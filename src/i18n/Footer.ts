@@ -1,23 +1,19 @@
 const translationsFooter = {
   en: {
-    h1: "Connect with me",
-    resumeHref: "/Edson_Pimenta_resume.pdf",
-    resumeLink: "Download resume",
+    heading: "Connect with me",
     repositoryLink: "Project repository",
-    githubLinkAriaLabel: "Edson's Github profile page",
+    githubLinkAriaLabel: "Edson's GitHub profile page",
     linkedinLinkAriaLabel: "Edson's LinkedIn profile page",
-    youtubeChannelLinkAriaLabel: "Edson's Youtube channel",
-    emailLinkAriaLabel: "Edson's E-mail",
+    youtubeChannelLinkAriaLabel: "Edson's YouTube channel",
+    emailLinkAriaLabel: "Edson's email address",
   },
   "pt-br": {
-    h1: "Conecte-se comigo",
-    resumeHref: "/Edson_Pimenta_curriculo.pdf",
-    resumeLink: "Baixar currículo",
+    heading: "Conecte-se comigo",
     repositoryLink: "Repositório do projeto",
-    githubLinkAriaLabel: "Perfil do Github do Edson",
+    githubLinkAriaLabel: "Perfil do GitHub do Edson",
     linkedinLinkAriaLabel: "Perfil do LinkedIn do Edson",
-    youtubeChannelLinkAriaLabel: "Canal no Youtube do Edson",
-    emailLinkAriaLabel: "E-mail do Edson Pimenta",
+    youtubeChannelLinkAriaLabel: "Canal do Edson no YouTube",
+    emailLinkAriaLabel: "Email do Edson Pimenta",
   },
 };
 
