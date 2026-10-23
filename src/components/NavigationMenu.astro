@@ -1,0 +1,194 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+import { translationsHeader } from "@i18n/Header";
+
+interface Props {
+  idPrefix: string;
+}
+
+const { idPrefix } = Astro.props;
+const currentPathname = Astro.url.pathname.replace("/pt-br", "");
+const currentLang = Astro.currentLocale === "en" ? "en" : "pt-br";
+const translation = translationsHeader[currentLang];
+const homeUrl = getRelativeLocaleUrl(Astro.currentLocale ?? "en", "/");
+const sectionUrl = (section: string) =>
+  currentPathname !== "/" ? `${homeUrl}#${section}` : `#${section}`;
+---
+
+<ul>
+  <li><a href={sectionUrl("about")}>{translation.about}</a></li>
+  <li><a href={sectionUrl("career")}>{translation.career}</a></li>
+  <li><a href={sectionUrl("projects")}>{translation.projects}</a></li>
+  <li>
+    <menu class="options">
+      <li>
+        <label for={`${idPrefix}-colors`}>
+          {translation.colorMode}
+        </label>
+        <select class="theme-select" id={`${idPrefix}-colors`}>
+          <option value="system">{translation.systemModeOption}</option>
+          <option value="light">{translation.lightModeOption}</option>
+          <option value="dark">{translation.darkModeOption}</option>
+        </select>
+      </li>
+      <li>
+        <span class="language-label">{translation.langLabel}</span>
+        <div class="language-links">
+          <a
+            href={getRelativeLocaleUrl("en", currentPathname)}
+            hreflang="en"
+            lang="en"
+            aria-current={currentLang === "en" ? "page" : undefined}>EN</a
+          >
+          <a
+            href={getRelativeLocaleUrl("pt-br", currentPathname)}
+            hreflang="pt-BR"
+            lang="pt-BR"
+            aria-current={currentLang === "pt-br" ? "page" : undefined}
+            >PT-BR</a
+          >
+        </div>
+      </li>
+    </menu>
+  </li>
+</ul>
+
+<style>
+  ul,
+  .options {
+    list-style: none;
+  }
+
+  a,
+  select {
+    display: block;
+    background-color: rgba(0, 0, 0, 0.02);
+    color: var(--neutral-900);
+    padding: 1rem 0.8rem;
+    border: 1px solid var(--neutral-200);
+    border-radius: 6px;
+    margin: 1.2rem 0;
+    font-size: 1.4rem;
+    line-height: 120%;
+    letter-spacing: 0.1rem;
+    transition: 0.2s border-color ease-in-out;
+  }
+
+  a:hover,
+  a:focus-visible,
+  select:hover,
+  select:focus-visible {
+    color: var(--focus);
+    border-color: var(--focus);
+  }
+
+  select {
+    width: 100%;
+    margin: 0;
+    cursor: pointer;
+  }
+
+  select option {
+    background-color: var(--neutral);
+  }
+
+  .options {
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--neutral-200);
+  }
+
+  .options label,
+  .language-label {
+    display: block;
+    margin-bottom: 0.8rem;
+    color: var(--neutral-900);
+    font-size: 1.4rem;
+    line-height: 1.4;
+  }
+
+  .options li + li {
+    margin-top: 1.6rem;
+  }
+
+  .language-links {
+    display: flex;
+    align-items: stretch;
+    gap: 0.8rem;
+  }
+
+  .language-links a {
+    flex: 1;
+    margin: 0;
+    padding: 1rem 1.2rem;
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  .language-links a[aria-current="page"] {
+    border-color: var(--primary);
+    color: var(--primary);
+  }
+
+  @media (min-width: 1000px) {
+    ul,
+    .options {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.8rem;
+    }
+
+    ul {
+      width: 100%;
+    }
+
+    a {
+      background-color: transparent;
+      padding: 0.4rem 0.8rem;
+      border-color: transparent;
+      margin: 0;
+      font-size: 1.8rem;
+      line-height: 3rem;
+    }
+
+    .options {
+      padding: 0 0 0 1.2rem;
+      border-top: 0;
+      border-left: 1px solid var(--neutral-200);
+    }
+
+    .options li + li {
+      margin-top: 0;
+    }
+
+    .options label,
+    .language-label {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    select,
+    .language-links a {
+      flex: none;
+      width: auto;
+      height: 3.2rem;
+      padding: 0 0.6rem;
+      margin: 0;
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+
+    .language-links a {
+      display: flex;
+      align-items: center;
+    }
+  }
+</style>

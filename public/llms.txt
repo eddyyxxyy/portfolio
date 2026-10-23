@@ -1,0 +1,37 @@
+# Edson Pimenta
+
+> Bilingual portfolio for a software engineer focused on growth engineering,
+> AI systems, and high-scale web architecture.
+
+## Canonical pages
+
+- [English portfolio](https://www.edsonpimenta.net/)
+- [Portfólio em português](https://www.edsonpimenta.net/pt-br/)
+
+## Profile
+
+- Edson Pimenta has more than four years of professional software development
+  experience.
+- Primary technologies include PHP, Symfony, Slim, TypeScript, Node.js, React,
+  Vue, Nuxt, Docker, and AWS.
+- His work favors native platform capabilities, small client-side bundles,
+  measurable outcomes, and pragmatic choices for each product.
+
+## Selected work
+
+- At Gran, Edson works on growth engineering, web performance, structured data,
+  semantic systems, and AI initiatives for the organic platform.
+- SchematicLD is a private, zero-dependency JSON-LD library designed and built
+  by Edson. Gran owns the project; its source code and repository are not
+  public.
+- [Gran Questões](https://questoes.grancursosonline.com.br/) integrates
+  SchematicLD into its Nuxt-rendered pages.
+
+## Verified profiles
+
+- [GitHub](https://github.com/eddyyxxyy)
+- [LinkedIn](https://www.linkedin.com/in/edsonrobertopimenta/)
+- [YouTube](https://www.youtube.com/@eddyxide)
+
+This file is an experimental discovery aid. The canonical HTML pages and their
+structured data remain the authoritative sources.

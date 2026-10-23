@@ -1,8 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import LinkButton from "@/components/LinkButton.astro";
-import { Picture } from "astro:assets";
-
 import notFoundImage from "@assets/page_not_found.svg";
 import { translations404 } from "@/i18n/404";
 import { getRelativeLocaleUrl } from "astro:i18n";
@@ -13,10 +11,11 @@ const translationObject = translations404[currentTranslation];
 ---
 
 <BaseLayout
+  noindex
   pageTitle={translationObject.pageTitle}
-  pageDescription={translationObject.pageTitle}
+  pageDescription={translationObject.pageDescription}
 >
-  <main>
+  <main id="main-content">
     <div id="hero">
       <div id="cta-back-to-home">
         <h1>
@@ -24,13 +23,13 @@ const translationObject = translations404[currentTranslation];
         </h1>
         <p>{translationObject.p}</p>
         <div id="not-found-image-container">
-          <Picture
-            src={notFoundImage}
-            alt="Ilustration of a computer with error 404 while accessing a webpage."
+          <img
+            src={notFoundImage.src}
+            alt={translationObject.imageAlt}
+            width={notFoundImage.width}
+            height={notFoundImage.height}
             loading="eager"
             decoding="async"
-            format="svg"
-            fallbackFormat="png"
           />
         </div>
         <div id="cta">

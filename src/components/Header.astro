@@ -1,17 +1,17 @@
 ---
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { Picture } from "astro:assets";
-import { Icon } from "astro-icon/components";
 
 import logoColoured from "@assets/logo_coloured.webp";
 import { translationsHeader } from "@i18n/Header";
+import navigationSource from "@/client/navigation.js?raw";
+import InlineIcon from "./InlineIcon.astro";
+import NavigationMenu from "./NavigationMenu.astro";
 
-const { appVersion } = Astro.locals;
-
-const currentPathname = Astro.url.pathname.replace("/pt-br", "");
 const currentLang = Astro.currentLocale === "en" ? "en" : "pt-br";
 
 const translationObject = translationsHeader[currentLang];
+const navigationScript = navigationSource;
 ---
 
 <header>
@@ -24,6 +24,9 @@ const translationObject = translationsHeader[currentLang];
         decoding="async"
         format="webp"
         fallbackFormat="jpg"
+        layout="fixed"
+        width={30}
+        height={30}
       />
     </div>
     <span>EDDY<span>YXXYY</span></span>
@@ -31,117 +34,25 @@ const translationObject = translationsHeader[currentLang];
   <button
     type="button"
     id="menu-toggle"
+    popovertarget="mobile-menu"
     aria-label={translationObject.menuToggle}
   >
-    <Icon name="hamburguer_menu" size={18} />
+    <InlineIcon name="hamburguer_menu" size={18} />
   </button>
-  <nav id="menu">
-    <ul>
-      <li>
-        <a
-          href={Astro.url.pathname.replace("/pt-br", "") !== "/"
-            ? getRelativeLocaleUrl(Astro.currentLocale ?? "en", "/#about")
-            : "#about"}>{translationObject.about}</a
-        >
-      </li>
-      <li>
-        <a
-          href={Astro.url.pathname.replace("/pt-br", "") !== "/"
-            ? getRelativeLocaleUrl(Astro.currentLocale ?? "en", "/#career")
-            : "#career"}>{translationObject.career}</a
-        >
-      </li>
-      <li>
-        <a
-          href={Astro.url.pathname.replace("/pt-br", "") !== "/"
-            ? getRelativeLocaleUrl(Astro.currentLocale ?? "en", "/#projects")
-            : "#projects"}>{translationObject.projects}</a
-        >
-      </li>
-      <!-- <li>
-        <a href={getRelativeLocaleUrl(Astro.currentLocale ?? "en", "/blog")}
-          >Blog <Icon name="arrow_up_right" size={12} /></a
-        >
-      </li> -->
-      <li>
-        <menu id="options">
-          <li>
-            <label for="colors">
-              {translationObject.colorMode}
-            </label>
-            <select id="colors">
-              <option value="light">{translationObject.lightModeOption}</option>
-              <option value="dark">{translationObject.darkModeOption}</option>
-            </select>
-          </li>
-          <li>
-            <label for="languages">
-              {translationObject.langLabel}
-            </label>
-            <select id="languages">
-              <option
-                value={getRelativeLocaleUrl("en", currentPathname)}
-                selected={currentLang === "en"}>English</option
-              >
-              <option
-                value={getRelativeLocaleUrl("pt-br", currentPathname)}
-                selected={currentLang === "pt-br"}>Português</option
-              >
-            </select>
-          </li>
-        </menu>
-      </li>
-    </ul>
+  <nav
+    id="mobile-menu"
+    class="mobile-menu"
+    aria-label={translationObject.navigationLabel}
+    popover
+  >
+    <NavigationMenu idPrefix="mobile" />
+  </nav>
+  <nav class="desktop-menu" aria-label={translationObject.navigationLabel}>
+    <NavigationMenu idPrefix="desktop" />
   </nav>
 </header>
 
-<script define:vars={{ appVersion }} is:inline>
-  document.addEventListener("astro:page-load", () => {
-    const headerElement = document.querySelector("header");
-    const navMenuElement = document.getElementById("menu");
-    const menuToggleElement = document.getElementById("menu-toggle");
-    const themeSelectElement = document.getElementById("colors");
-
-    document.addEventListener("click", (event) => {
-      if (
-        event.target instanceof HTMLElement &&
-        !headerElement?.contains(event.target)
-      ) {
-        navMenuElement?.classList.remove("expanded");
-      }
-    });
-
-    if (menuToggleElement instanceof HTMLButtonElement) {
-      menuToggleElement.addEventListener("click", () => {
-        navMenuElement?.classList.toggle("expanded");
-      });
-    }
-
-    if (themeSelectElement instanceof HTMLSelectElement) {
-      themeSelectElement.addEventListener("change", () => {
-        document.documentElement.dataset.theme = themeSelectElement.value;
-
-        localStorage.setItem(
-          "eddyyxxyy-portfolio-theme:" + appVersion,
-          themeSelectElement.value,
-        );
-      });
-    }
-  });
-</script>
-<script>
-  import { navigate } from "astro:transitions/client";
-
-  document.addEventListener("astro:page-load", () => {
-    const selectLangElement = document.getElementById("languages");
-
-    if (selectLangElement instanceof HTMLSelectElement) {
-      selectLangElement.addEventListener("change", () => {
-        navigate(selectLangElement.value);
-      });
-    }
-  });
-</script>
+<script is:inline set:html={navigationScript} />
 
 <style>
   header {
@@ -174,13 +85,11 @@ const translationObject = translationsHeader[currentLang];
   .logo:hover,
   .logo:focus-visible {
     filter: brightness(1.1);
-    border: 1px solid var(--primary);
-    box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
-    outline: none;
+    border-color: var(--focus);
   }
 
   .logo span {
-    font-family: "Exo 2", sans-serif;
+    font-family: var(--font-exo-2);
     font-weight: 600;
     font-size: 1.4rem;
     line-height: 3rem;
@@ -221,104 +130,41 @@ const translationObject = translationsHeader[currentLang];
   button:hover,
   button:focus-visible {
     filter: brightness(1.2);
-    border: 1px solid var(--primary);
-    outline: none;
+    border-color: var(--focus);
   }
 
-  [data-icon="hamburguer_menu"] {
+  #menu-toggle :global(.inline-icon) {
     color: var(--neutral-900);
   }
 
-  ul {
-    list-style: none;
+  .desktop-menu {
+    display: none;
   }
 
-  #menu {
-    position: absolute;
-    opacity: 0;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
-    list-style: none;
-    background-color: var(--neutral);
-    text-align: left;
-    transition: 0.25s opacity cubic-bezier(0.55, 0.085, 0.68, 0.53);
-  }
-
-  #menu.expanded {
-    display: block;
-    z-index: 1;
-    opacity: 1;
-    height: fit-content;
-    width: initial;
-    top: 5.9rem;
-    right: 0;
-    clip: initial;
+  .mobile-menu {
+    position: fixed;
+    inset: 6rem 0 auto auto;
+    width: min(32rem, 100%);
+    max-height: calc(100dvh - 6rem);
     padding: 0.8rem 2rem;
     margin: 0;
-    border: 1px solid var(--neutral-100);
+    overflow: auto;
+    border: 0 1px 1px 1px solid var(--neutral-100);
     border-top: none;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
-  }
-
-  #menu li a,
-  #menu li select,
-  #menu li button {
-    display: block;
-    background-color: rgba(0, 0, 0, 0.02);
-    letter-spacing: 0.1rem;
-    font-weight: 400;
-    font-size: 1.4rem;
-    line-height: 120%;
-    color: var(--neutral-900);
-    padding: 1rem 0.8rem;
-    border: 1px solid var(--neutral-200);
-    border-radius: 6px;
-    margin: 1.2rem auto;
-    transition: 0.25s all cubic-bezier(0.165, 0.84, 0.44, 1);
-    outline: none;
-  }
-
-  #menu li select option {
+    border-radius: 0 0 0 8px;
     background-color: var(--neutral);
-    border: 1px solid (--neutral-200);
+    text-align: left;
+    box-shadow: 0 12px 16px -10px rgba(0, 0, 0, 0.28);
   }
 
-  #menu li a:hover,
-  #menu li a:focus-visible,
-  #menu li button:hover,
-  #menu li button:focus-visible {
-    filter: saturate(1.2);
-    filter: brightness(0.8);
-    color: var(--primary);
-    border: 1px solid var(--primary);
-    text-decoration: underline;
-    outline: none;
+  .mobile-menu:popover-open {
+    display: block;
+    z-index: 1;
   }
 
-  #menu li select:hover,
-  #menu li select:focus-visible {
-    border: 1px solid var(--primary);
-    outline: none;
-  }
-
-  #options {
-    padding-top: 1.2rem;
-    border-top: 1px solid var(--neutral-200);
-    list-style: none;
-  }
-
-  #options li select {
-    font-size: 1.2rem;
-    margin: 1rem 1rem 1rem 0;
-    cursor: pointer;
+  .mobile-menu::backdrop {
+    background-color: rgba(0, 0, 0, 0.15);
+    clip-path: inset(6rem 0 0 0);
   }
 
   @media (min-width: 1000px) {
@@ -330,93 +176,26 @@ const translationObject = translationsHeader[currentLang];
       font-size: 1.8rem;
     }
 
-    #menu,
-    #menu.expanded,
-    ul {
+    .desktop-menu {
       display: block;
-      opacity: 1;
-      height: max-content;
-      overflow: visible;
-      position: unset;
       width: 100%;
-      display: flex;
-      justify-content: flex-end;
-      gap: 1%;
-      background-color: transparent;
-      padding: 0;
-      border: none;
-      box-shadow: none;
-      text-align: center;
     }
 
-    #menu :nth-child(4) {
-      margin-right: 1.2rem;
+    #menu-toggle,
+    .mobile-menu {
+      display: none;
     }
 
-    #menu li a {
-      display: block;
-      background-color: transparent;
-      font-weight: 400;
-      font-size: 1.8rem;
-      line-height: 3rem;
-      color: var(--neutral-900);
-      padding: 0.4rem 0.8rem;
-      border: none;
-      border-radius: 4px;
-      margin: 0;
-      transition: 0.25s all cubic-bezier(0.165, 0.84, 0.44, 1);
+    #mobile-menu:popover-open {
+      display: none;
     }
 
-    #menu li:hover a {
-      filter: saturate(1);
-      color: var(--primary);
-      border: none;
-      text-decoration: underline;
-    }
-
-    button {
+    #menu-toggle :global(.inline-icon) {
       display: none;
       width: 0;
       height: 0;
     }
 
-    [data-icon="hamburguer_menu"] {
-      display: none;
-      width: 0;
-      height: 0;
-    }
-
-    #options {
-      display: flex;
-      padding: 0;
-      border-top: none;
-      border-left: 1px solid var(--neutral-200);
-    }
-
-    #options label {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border-width: 0;
-    }
-
-    #options select {
-      font-size: 1.4rem;
-    }
-
-    #options :first-child {
-      margin-left: 5%;
-    }
-
-    #options li select {
-      padding: 0.6rem;
-      margin: 0.4rem 0.8rem;
-    }
   }
 
   @media (min-width: 1280px) {

@@ -22,7 +22,7 @@ const { href, text, ...attrs } = Astro.props;
     border-radius: 8px;
     font-size: 1.8rem;
     text-decoration: none;
-    color: white;
+    color: var(--neutral);
     transition:
       0.25s border ease-in-out,
       0.25s filter cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -31,8 +31,6 @@ const { href, text, ...attrs } = Astro.props;
   a:hover,
   a:focus-visible {
     filter: brightness(1.1);
-    border: 1px solid var(--primary);
-    box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
-    outline: none;
+    border-color: var(--focus);
   }
 </style>
