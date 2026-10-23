@@ -1,38 +1,104 @@
 ---
-import { ClientRouter } from "astro:transitions";
+import { Font } from "astro:assets";
 
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
+import navigationSource from "@/client/navigation.js?raw";
+import themeSource from "@/client/theme.js?raw";
+import { registerInlineScript } from "@/lib/csp";
+import { createKnowledgeGraph } from "@/lib/structured-data";
 
 import "@styles/global.css";
 
-const { appVersion } = Astro.locals;
-
 const currentLocale = Astro.currentLocale ?? "en";
+const documentLanguage = currentLocale === "pt-br" ? "pt-BR" : "en";
+const skipLinkText =
+  currentLocale === "pt-br" ? "Pular para o conteúdo" : "Skip to main content";
+const currentPath = Astro.url.pathname;
+const localeNeutralPath =
+  currentLocale === "pt-br"
+    ? currentPath.replace(/^\/pt-br/, "") || "/"
+    : currentPath;
+const englishUrl = new URL(localeNeutralPath, Astro.site);
+const portugueseUrl = new URL(
+  `/pt-br${localeNeutralPath === "/" ? "/" : localeNeutralPath}`,
+  Astro.site,
+);
+const socialImageUrl = new URL(
+  "/og/edson-pimenta-portfolio.png",
+  Astro.site,
+);
 
 interface Props {
   canonicalUrl?: URL;
+  noindex?: boolean;
   pageTitle: string;
   pageDescription: string;
 }
 
-const { canonicalUrl, pageDescription, pageTitle } = Astro.props;
+const {
+  canonicalUrl,
+  noindex = false,
+  pageDescription,
+  pageTitle,
+} = Astro.props;
+
+const knowledgeGraph =
+  canonicalUrl && !noindex
+    ? createKnowledgeGraph({
+        canonicalUrl: canonicalUrl.href,
+        description: pageDescription,
+        locale: currentLocale === "pt-br" ? "pt-BR" : "en-US",
+        title: pageTitle,
+      })
+    : undefined;
+const themeScript = registerInlineScript(Astro.csp, themeSource);
+registerInlineScript(Astro.csp, navigationSource);
 ---
 
-<html lang={currentLocale}>
+<html lang={documentLanguage}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;500;700&family=Exo+2:ital,wght@0,400..700;1,400..700&display=swap"
-      rel="stylesheet"
+    <Font cssVariable="--font-alegreya-sans" preload={[{ weight: 400 }]} />
+    <Font
+      cssVariable="--font-exo-2"
+      preload={[{ weight: 600 }, { weight: 700 }]}
     />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={pageDescription} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
+    <meta name="theme-color" content="#07151d" />
     {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+    <link rel="alternate" hreflang="en-US" href={englishUrl} />
+    <link rel="alternate" hreflang="pt-BR" href={portugueseUrl} />
+    <link rel="alternate" hreflang="x-default" href={englishUrl} />
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl?.href ?? Astro.url.href} />
+    <meta
+      property="og:locale"
+      content={currentLocale === "pt-br" ? "pt_BR" : "en_US"}
+    />
+    <meta property="og:image" content={socialImageUrl} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Edson Pimenta | Growth Engineering and AI Systems"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={socialImageUrl} />
+    <meta
+      name="twitter:image:alt"
+      content="Edson Pimenta | Growth Engineering and AI Systems"
+    />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" href="/favicon-16x16.png" />
     <link rel="icon" type="image/png" href="/favicon-32x32.png" />
@@ -50,49 +116,21 @@ const { canonicalUrl, pageDescription, pageTitle } = Astro.props;
     />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <title>{pageTitle}</title>
-    <ClientRouter />
+    {
+      knowledgeGraph && (
+        <script
+          is:inline
+          type="application/ld+json"
+          set:html={JSON.stringify(knowledgeGraph).replace(/</g, "\\u003c")}
+        />
+      )
+    }
+    <script is:inline set:html={themeScript} />
   </head>
   <body>
+    <a class="skip-link" href="#main-content">{skipLinkText}</a>
     <Header />
     <slot />
     <Footer />
-    <script define:vars={{ appVersion }} is:inline>
-      function setDarkMode(document) {
-        const themeSelectElement = document.getElementById("colors");
-
-        const selectedThemeIndex =
-          localStorage["eddyyxxyy-portfolio-theme:" + appVersion] === "light"
-            ? 0
-            : 1;
-
-        themeSelectElement.selectedIndex = selectedThemeIndex;
-
-        const selectedTheme =
-          localStorage["eddyyxxyy-portfolio-theme:" + appVersion] === "light"
-            ? "light"
-            : "dark";
-
-        document.documentElement.dataset.theme = selectedTheme;
-      }
-
-      setDarkMode(document);
-
-      document.addEventListener("astro:before-swap", (event) => {
-        setDarkMode(event.newDocument);
-      });
-    </script>
-    <script
-      is:inline
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-3ZHMY35FBB"></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", "G-3ZHMY35FBB");
-    </script>
   </body>
 </html>

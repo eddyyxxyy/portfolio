@@ -1,56 +1,60 @@
-[![](./.github/docs/img/readme_banner.jpeg)](https://www.edsonpimenta.net)
+[![Portfólio de Edson Pimenta](./.github/docs/img/readme_banner.jpeg)](https://www.edsonpimenta.net)
 
-> Click this link to read the [documentation for english speakers](./README_EN.md).
+> [Read this documentation in English](./README_EN.md).
 
-# Meu Portfólio
+# Portfólio de Edson Pimenta
 
-**Acesse: [Portfólio do Edson Pimenta](https://www.edsonpimenta.net)**
+Portfólio bilíngue, estático e orientado a conteúdo sobre growth engineering,
+sistemas de IA e arquitetura web de alta escala.
 
-Olá! Sou **Edson Pimenta**, um **desenvolvedor full-stack** em constante evolução, **apaixonado por aprender** e por **construir soluções** que fazem diferença na vida das pessoas. Estou animado para compartilhar meu mais recente projeto: um **portfólio pessoal** construído usando **Astro** e **TypeScript** como suas principais tecnologias!
+## Stack
 
-## Ambiente de Desenvolvimento
+- Astro 7 e TypeScript;
+- HTML e CSS nativos, com JavaScript inline mínimo;
+- fontes e imagens processadas pelo Astro;
+- GitHub Actions para qualidade e publicação no GitHub Pages;
+- Node.js 24 e npm 11.
 
-Com foco na **entrega de conteúdo útil e performático**, optei pelas seguintes tecnologias:
+## Desenvolvimento
 
-- _Astro_;
-- _TypeScript_;
-- _Docker_.
+```sh
+nvm use
+npm ci
+npm run dev
+```
 
-E para a **consistência de estilo e qualidade de código**:
+Validação rápida:
 
-- _Husky_;
-- _ESLint_;
-- _Prettier_;
-- _Commitlint_;
-- _Lint Staged_;
-- _Simple Import Sort_.
+```sh
+npm run quality
+```
 
-### Em relação a containers Docker
+Validação completa, incluindo Lighthouse em inglês e português para mobile e
+desktop:
 
-Além disso, "_dockerizei_" a aplicação para ter um ambiente de desenvolvimento utilizando o próprio servidor do Astro e um ambiente de produção com Nginx, ambos facilmente acessíveis à partir de suas imagens orquestradas pelo `docker compose`. Acesse-os com os seguintes comandos em seu terminal:
+```sh
+npm run quality:full
+```
 
-```bash
-# Ambiente de desenvolvimento:
+## Decisões e operação
+
+- [Arquitetura](./docs/ARCHITECTURE.md)
+- [Busca e descoberta](./docs/SEO.md)
+- [Performance](./docs/PERFORMANCE.md)
+- [Segurança](./docs/SECURITY.md)
+- [Reserva do blog](./docs/BLOG.md)
+- [Decisões técnicas](./docs/DECISIONS.md)
+
+O site não usa analytics, runtime de servidor, roteador cliente, service worker
+ou download de currículo.
+
+## Containers opcionais
+
+```sh
 docker compose up --build
-
-# Ambiente de produção:
 docker compose -f docker-compose.prod.yaml up --build
 ```
 
-> `--build` só é necessário caso você queira realmente "_buildar_" as imagens da aplicação.
-
-Dessa forma você terá acesso na porta 3000 do seu computador à aplicação, em ambos os ambientes. Só será necessário, após subir o container de sua preferência, acessar: http://localhost:3000/.
-
 ## Licença
 
-Distribuído sob licença MIT. Veja [`LICENSE`](./LICENSE.md) para mais informações.
-
-## Contato
-
-Links úteis:
-
-- [Acesse meu Portfólio](https://www.edsonpimenta.net)
-- [Confira todos os meus projetos](https://github.com/eddyyxxyy)
-- [Conecte-se comigo no LinkedIn](https://www.linkedin.com/in/edsonrobertopimenta/)
-- [Assista meus vídeos no Youtube](https://www.youtube.com/@eddyxide)
-- [Me mande um e-mail](mailto:dev.edsonpimenta@gmail.com?)
+[MIT](./LICENSE.md)

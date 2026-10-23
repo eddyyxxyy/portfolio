@@ -1,10 +1,10 @@
-FROM node:20-alpine3.20
+FROM node:24-alpine3.22
 
 WORKDIR /usr/src/app
 
 COPY . .
 
-RUN npm i
+RUN HUSKY=0 npm ci
 
 EXPOSE 3000
 

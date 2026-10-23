@@ -46,4 +46,24 @@ export default [
       "@typescript-eslint/no-unused-vars": "off",
     },
   },
+  {
+    files: ["scripts/**/*.mjs"],
+    languageOptions: {
+      globals: {
+        fetch: "readonly",
+      },
+    },
+  },
+  {
+    files: ["src/client/**/*.js"],
+    languageOptions: {
+      globals: {
+        document: "readonly",
+        HTMLAnchorElement: "readonly",
+        HTMLSelectElement: "readonly",
+        localStorage: "readonly",
+        matchMedia: "readonly",
+      },
+    },
+  },
 ];

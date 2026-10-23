@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon/components";
+import InlineIcon from "./InlineIcon.astro";
 
 export interface Props {
   iconLeft?: boolean;
@@ -15,12 +15,12 @@ const { iconLeft, iconName, iconSize, text } = Astro.props;
   iconName ? (
     iconLeft ? (
       <span>
-        <Icon name={iconName} size={iconSize} /> {text}
+        <InlineIcon name={iconName} size={iconSize} /> {text}
       </span>
     ) : (
       <span>
         {text}
-        <Icon name={iconName} size={iconSize} />
+        <InlineIcon name={iconName} size={iconSize} />
       </span>
     )
   ) : (
