@@ -12,7 +12,7 @@ sistemas de IA e arquitetura web de alta escala.
 - Astro 7 e TypeScript;
 - HTML e CSS nativos, com JavaScript inline mínimo;
 - fontes e imagens processadas pelo Astro;
-- GitHub Actions para qualidade e publicação no GitHub Pages;
+- GitHub Actions para qualidade e publicação no Cloudflare Pages;
 - Node.js 24 e npm 11.
 
 ## Desenvolvimento

@@ -204,6 +204,56 @@ assert(
 );
 
 try {
+  const headerRules = new Map();
+  let pattern;
+  for (const line of (await readFile(new URL("_headers", dist), "utf8"))
+    .split("\n")) {
+    if (!line.trim() || line.trimStart().startsWith("#")) continue;
+    if (/^\s/u.test(line)) {
+      headerRules.get(pattern)?.push(line.trim());
+    } else {
+      pattern = line.trim();
+      headerRules.set(pattern, []);
+    }
+  }
+  const rule = (path) => headerRules.get(path) ?? [];
+  assert(
+    [
+      "X-Frame-Options: DENY",
+      "X-Content-Type-Options: nosniff",
+      "Referrer-Policy: strict-origin-when-cross-origin",
+      "Permissions-Policy: camera=(), microphone=(), geolocation=()",
+      "Strict-Transport-Security: max-age=31536000; includeSubDomains; preload",
+    ].every((header) => rule("/*").includes(header)),
+    "_headers: missing site-wide security headers",
+  );
+  assert(
+    rule("/_astro/*").includes(
+      "Cache-Control: public, max-age=31536000, immutable",
+    ),
+    "_headers: hashed assets are not cached as immutable",
+  );
+  assert(
+    [
+      "https://:project.pages.dev/*",
+      "https://:version.:project.pages.dev/*",
+    ].every((path) => rule(path).includes("X-Robots-Tag: noindex")),
+    "_headers: pages.dev hosts are indexable",
+  );
+} catch {
+  failures.push("_headers: file was not generated");
+}
+
+for (const file of ["_worker.js", "_routes.json", "functions"]) {
+  try {
+    await access(new URL(file, dist));
+    failures.push(`${file}: static output must not enable Pages Functions`);
+  } catch {
+    // Absence keeps Cloudflare Pages on static asset serving only.
+  }
+}
+
+try {
   await access(new URL("pt-br/404/index.html", dist));
   failures.push("pt-br/404/index.html: duplicate localized 404 was generated");
 } catch {

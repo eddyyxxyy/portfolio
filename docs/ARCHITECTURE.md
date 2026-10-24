@@ -2,7 +2,8 @@
 
 The site is pre-rendered by Astro and published as static files. There is no
 server adapter, database, API, hydration directive, service worker, or
-generated JavaScript bundle. Two inline scripts set the theme before paint and
+generated JavaScript bundle. `dist/` is uploaded unchanged to Cloudflare Pages
+and served from its edge with no Pages Functions or Workers runtime. Two inline scripts set the theme before paint and
 wire the theme select.
 
 `/` and `/pt-br/` render `HomePage.astro` with locale-specific copy. The shared
@@ -14,7 +15,10 @@ go through Astro assets; SVGs are copied through. Fonts are self-hosted by
 Astro Fonts.
 
 - `src/` holds pages, components, copy, styles, and source assets.
-- `public/` is copied unchanged, including `llms.txt`, the portrait, and the
-  Open Graph image.
+- `public/` is copied unchanged, including `llms.txt`, the portrait, the
+  Open Graph image, and `_headers`.
 - `dist/` is generated. Do not edit it.
 - `scripts/verify-build.mjs` checks the generated output.
+- `.github/workflows/deploy.yml` runs the quality gate and Lighthouse on
+  `main`, then a separate job publishes the verified `dist/` artifact with
+  Wrangler.
