@@ -49,8 +49,8 @@
     "@commitlint/cli": "^21.2.4",
     "@commitlint/config-conventional": "^21.2.4",
     "@eslint/js": "^10.0.1",
-    "@stylistic/eslint-plugin": "^4.4.1",
-    "@types/node": "^24.19.2",
+    "@stylistic/eslint-plugin": "^5.10.0",
+    "@types/node": "^26.6.5",
     "@typescript-eslint/eslint-plugin": "^8.72.0",
     "@typescript-eslint/parser": "^8.72.0",
     "chrome-launcher": "^1.2.2",
@@ -60,6 +60,6 @@
     "jiti": "^2.7.0",
     "lighthouse": "^13.5.0",
     "sharp": "^0.35.5",
-    "typescript": "~6.0"
+    "typescript": "~7.0"
   }
 }
