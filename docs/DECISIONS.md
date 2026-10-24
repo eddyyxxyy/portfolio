@@ -2,8 +2,10 @@
 
 ## Static output
 
-The site is static Astro output on GitHub Pages. A server runtime is not
-needed for the current pages.
+The site is static Astro output on Cloudflare Pages, uploaded from GitHub
+Actions with Wrangler. A server runtime is not needed for the current pages, so
+there is no `@astrojs/cloudflare` adapter, Pages Function, or Worker. Response
+headers come from `public/_headers`.
 
 ## No analytics
 
