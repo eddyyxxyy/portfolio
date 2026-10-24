@@ -12,7 +12,7 @@ systems, and high-scale web architecture.
 - Astro 7 and TypeScript;
 - native HTML and CSS with minimal inline JavaScript;
 - Astro-managed fonts and responsive images;
-- GitHub Actions quality gates and GitHub Pages deployment;
+- GitHub Actions quality gates and Cloudflare Pages deployment;
 - Node.js 24 and npm 11.
 
 ## Development
