@@ -76,8 +76,11 @@ for (const page of pages) {
     }
 
     assert(
-      html.includes("http-equiv=\"content-security-policy\""),
-      `${page.file}: missing Astro-generated CSP`,
+      html.includes("http-equiv=\"content-security-policy\"") &&
+        html.includes("https://static.cloudflareinsights.com") &&
+        html.includes("https://cloudflareinsights.com") &&
+        html.includes("'sha256-"),
+      `${page.file}: CSP is missing a hash or the Cloudflare analytics hosts`,
     );
     assert(
       !/(?:googletagmanager|google-analytics|astro:transitions)/u.test(html),
