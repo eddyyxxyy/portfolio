@@ -5,8 +5,11 @@
 - Astro generates a hash-based CSP during the build.
 - Assets and fonts are served from the same origin.
 - External links opened in new tabs use `noopener noreferrer`.
-- The project has no forms, cookies, analytics, secrets, server code, or user
-  input processing.
+- The project has no forms, cookies, secrets, server code, or user input
+  processing. The only third-party script is the Cloudflare Web Analytics
+  beacon, allowed in the CSP as `https://static.cloudflareinsights.com` for
+  scripts and `https://cloudflareinsights.com` for connections. Inline script
+  hashes stay on the same `script-src`.
 - Dependencies are installed from the lockfile and audited in CI.
 - GitHub Actions run with read-only repository permissions. The Cloudflare
   API token is an environment secret read only by the deploy job, which never

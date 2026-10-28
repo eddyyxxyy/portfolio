@@ -7,10 +7,11 @@ Actions with Wrangler. A server runtime is not needed for the current pages, so
 there is no `@astrojs/cloudflare` adapter, Pages Function, or Worker. Response
 headers come from `public/_headers`.
 
-## No analytics
+## Analytics
 
-There is no analytics tag. Reconsider only for a measurement that would change
-a specific decision.
+Cloudflare Web Analytics is the only measurement. It is injected by the
+Cloudflare zone, sets no cookie, and is limited to the two hosts named in the
+CSP. No other analytics tag is allowed.
 
 ## No service worker
 

@@ -57,7 +57,7 @@ export default defineConfig({
       directives: [
         "default-src 'self'",
         "base-uri 'self'",
-        "connect-src 'self'",
+        "connect-src 'self' https://cloudflareinsights.com",
         "font-src 'self'",
         "form-action 'self'",
         "img-src 'self' data:",
@@ -67,6 +67,9 @@ export default defineConfig({
         "worker-src 'none'",
         "upgrade-insecure-requests",
       ],
+      scriptDirective: {
+        resources: ["'self'", "https://static.cloudflareinsights.com"],
+      },
     },
   },
 });
