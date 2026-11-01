@@ -49,17 +49,17 @@
     "@commitlint/cli": "^21.2.4",
     "@commitlint/config-conventional": "^21.2.4",
     "@eslint/js": "^10.0.1",
-    "@stylistic/eslint-plugin": "^4.4.1",
-    "@types/node": "^24.19.2",
-    "@typescript-eslint/eslint-plugin": "^8.72.0",
+    "@stylistic/eslint-plugin": "^5.10.0",
+    "@types/node": "^26.6.6",
+    "@typescript-eslint/eslint-plugin": "^8.72.1",
     "@typescript-eslint/parser": "^8.72.0",
     "chrome-launcher": "^1.2.2",
     "eslint": "^10.0.0",
     "eslint-plugin-astro": "^3.2.1",
     "husky": "^9.1.7",
     "jiti": "^2.7.0",
-    "lighthouse": "^13.5.0",
+    "lighthouse": "^13.6.0",
     "sharp": "^0.35.5",
-    "typescript": "~6.0"
+    "typescript": "~7.0"
   }
 }
